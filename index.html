@@ -93,10 +93,10 @@ html,body{height:100%;font-family:'Barlow',sans-serif;background:var(--bg);color
 /* MIDDLE */
 .cpx-slot{flex:1 1 auto; min-width:0; display:flex; align-items:center; gap:8px;}
 /* RIGHT */
-.cpx-sk{height:76px; width:auto; display:block;}
+.cpx-sk{height:52px; width:auto; display:block;}
 @media(max-width:760px){
   .cpx-module{font-size:17px;}
-  .cpx-sk{height:58px;}
+  .cpx-sk{height:40px;}
 }
 /* keep header-center alias for slot contents */
 .header-center{display:flex; align-items:center; gap:8px;}
@@ -112,7 +112,7 @@ html,body{height:100%;font-family:'Barlow',sans-serif;background:var(--bg);color
 /* ══════════════════════════════════════════════
    PAGE LAYOUT
 ══════════════════════════════════════════════ */
-.container{max-width:1900px;margin:0 auto;padding:18px 24px}
+.container{max-width:1900px;margin:0 auto;padding:10px 24px}
 
 /* ══════════════════════════════════════════════
    FILTER BAR
@@ -370,7 +370,7 @@ html,body{height:100%;font-family:'Barlow',sans-serif;background:var(--bg);color
 ══════════════════════════════════════════════ */
 .summary-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow-sm);overflow:hidden;margin-bottom:16px}
 .summary-hd{padding:12px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border-light);background:#f8fbff}
-.summary-title{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;color:var(--spectrum-blue);display:flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.08em}
+.summary-title{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:800;color:var(--spectrum-blue);display:flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.08em}
 .summary-title::before{content:'';width:3px;height:16px;background:var(--dental-blue);border-radius:2px}
 .summary-toggle{background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:4px 12px;border-radius:4px;font-family:'Barlow',sans-serif;font-size:11px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:.04em;transition:background .15s,border-color .15s}
 .summary-toggle:hover{background:#f0f4f8;border-color:var(--killian-blue);color:var(--killian-blue)}
@@ -403,7 +403,7 @@ html,body{height:100%;font-family:'Barlow',sans-serif;background:var(--bg);color
    PROGRAMS BANNER + SECTION
 ══════════════════════════════════════════════ */
 .programs-banner{
-  margin-top:24px;margin-bottom:0;
+  margin-top:10px;margin-bottom:0;
   background:var(--spectrum-blue);
   border:1px solid var(--border);
   border-radius:var(--r) var(--r) 0 0;
@@ -412,7 +412,7 @@ html,body{height:100%;font-family:'Barlow',sans-serif;background:var(--bg);color
   display:flex;align-items:center;
   box-shadow:var(--shadow-sm);
 }
-.pb-title{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;color:var(--white);text-transform:uppercase;letter-spacing:.12em}
+.pb-title{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:800;color:var(--white);text-transform:uppercase;letter-spacing:.12em}
 .programs-section{
   margin:0 0 16px;padding:14px 20px 16px;
   background:var(--white);border:1px solid var(--border);
@@ -430,6 +430,23 @@ html,body{height:100%;font-family:'Barlow',sans-serif;background:var(--bg);color
 /* ══════════════════════════════════════════════
    KANBAN BOARD — 6-column CSS grid, no scroll
 ══════════════════════════════════════════════ */
+.kanban-outer{
+  display:flex;
+  align-items:stretch;
+  gap:0;
+}
+.kanban-side-label{
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:11px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.22em;
+  color:rgba(5,32,48,.25);
+  padding:12px 4px;
+  white-space:nowrap;
+  user-select:none;
+  flex-shrink:0;
+}
 .kanban{
   display:grid;
   grid-template-columns:repeat(6,minmax(0,1fr));
@@ -437,6 +454,8 @@ html,body{height:100%;font-family:'Barlow',sans-serif;background:var(--bg);color
   padding-bottom:8px;
   padding-top:4px;
   align-items:start;
+  flex:1;
+  min-width:0;
 }
 .lane{
   background:var(--white);
@@ -457,16 +476,43 @@ html,body{height:100%;font-family:'Barlow',sans-serif;background:var(--bg);color
   border-radius:var(--r) var(--r) 0 0;
   min-height:0;
   box-sizing:border-box;
-  position:relative;        /* anchor for the gold step badge */
+  position:relative;
 }
 .lane-hd .lane-sub-text{flex:1}
+.lane-count-badge-new{
+  background:linear-gradient(135deg,var(--lab-gold) 0%,#c8a85e 100%);
+  border-radius:6px;
+  padding:3px 9px 4px;
+  display:flex;flex-direction:column;align-items:center;gap:0;
+  line-height:1;
+}
+.lane-count-badge-new .lcb-label{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:8px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.1em;
+  color:rgba(5,32,48,.6);
+}
+.lane-count-badge-new .lcb-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:19px;font-weight:800;
+  color:var(--spectrum-blue);line-height:1;
+}
 
 /* ── Step pill — gold rounded-rectangle with "STEP 01" label ── */
 .lane-top-row{
   display:flex;
   align-items:flex-start;
-  justify-content:flex-end; /* pill sits top-right */
-  margin-bottom:14px;
+  justify-content:flex-end;
+  margin-bottom:10px;
+}
+.lane-count-top{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:13px;font-weight:800;
+  color:rgba(255,255,255,.80);
+  background:rgba(255,255,255,.12);
+  border-radius:6px;
+  padding:3px 9px;
+  line-height:1;
 }
 .lane-count-badge{display:none}
 .lane-step-label{display:none} /* label is now inside .lane-num pill */
@@ -501,10 +547,21 @@ html,body{height:100%;font-family:'Barlow',sans-serif;background:var(--bg);color
   line-height:1;
 }
 
+.lane-name-row{
+  display:flex;align-items:center;gap:8px;
+}
+.lane-step-num-box{
+  background:var(--dental-blue);color:var(--spectrum-blue);
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:10px;font-weight:800;
+  min-width:17px;height:17px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:3px;flex-shrink:0;
+}
 .lane-name{
   font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:800;
   color:var(--dental-blue);text-transform:uppercase;letter-spacing:.22em;
-  line-height:1.2;margin-bottom:10px;
+  line-height:1.2;
 }
 .lane-headline{
   font-family:'Barlow Condensed',sans-serif;font-size:21px;font-weight:700;
@@ -684,6 +741,43 @@ html,body{height:100%;font-family:'Barlow',sans-serif;background:var(--bg);color
 ══════════════════════════════════════════════ */
 .modal-mask{position:fixed;inset:0;background:rgba(5,32,48,.45);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
 .modal-mask.show{display:flex}
+/* ═══ Guided Tour ═══ */
+.tour-mask{position:fixed;inset:0;z-index:8900;display:none;pointer-events:none}
+.tour-mask.active{display:block;pointer-events:auto}
+.tour-spotlight{position:fixed;z-index:8901;box-shadow:0 0 0 9999px rgba(5,32,48,.78);border-radius:8px;pointer-events:none;transition:top .25s,left .25s,width .25s,height .25s}
+.tour-tip{position:fixed;z-index:8902;background:var(--white);border-radius:14px;width:308px;padding:20px 20px 16px;box-shadow:0 8px 40px rgba(5,32,48,.3);transition:top .25s,left .25s;pointer-events:auto}
+.tour-tip-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.tour-step-lbl{font-size:11px;font-weight:700;color:var(--text-muted);letter-spacing:.08em;text-transform:uppercase}
+.tour-skip-btn{background:none;border:none;cursor:pointer;font-size:18px;color:var(--text-muted);padding:0;line-height:1}
+.tour-skip-btn:hover{color:var(--red)}
+.tour-restart-btn{background:none;border:none;cursor:pointer;font-size:14px;color:var(--text-muted);padding:0;line-height:1;margin-right:6px}
+.tour-restart-btn:hover{color:var(--spectrum-blue)}
+.tour-tip-icon{font-size:26px;display:block;margin-bottom:6px}
+.tour-tip-title{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:800;color:var(--spectrum-blue);margin-bottom:8px;line-height:1.1}
+.tour-tip-body{font-size:12.5px;line-height:1.6;color:var(--text);margin-bottom:16px}
+.tour-tip-body strong{color:var(--spectrum-blue)}
+.tour-tip-ft{display:flex;flex-direction:column;gap:10px}
+.tour-tip-btns{display:flex;gap:8px;justify-content:flex-end}
+.tour-prog{display:flex;gap:4px;align-items:center}
+.tour-prog-dot{width:6px;height:6px;border-radius:50%;background:var(--border);transition:background .2s;flex-shrink:0}
+.tour-prog-dot.done{background:var(--dental-blue)}
+.tour-prog-dot.cur{background:var(--spectrum-blue)}
+.tour-btn{padding:7px 15px;border-radius:6px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;cursor:pointer;border:none;letter-spacing:.04em;white-space:nowrap}
+.tour-btn-back{background:var(--border);color:var(--text)}
+.tour-btn-next{background:var(--spectrum-blue);color:#fff}
+.tour-btn-next:hover{background:var(--killian-blue)}
+.tour-btn-done{background:var(--dental-blue);color:var(--spectrum-blue)}
+.tour-beacon{
+  position:absolute;top:-4px;right:-4px;
+  width:9px;height:9px;border-radius:50%;
+  background:var(--dental-blue);border:1.5px solid #fff;
+  display:none;
+}
+.tour-beacon.show{display:block;animation:tour-pulse 1.6s ease-in-out infinite}
+@keyframes tour-pulse{
+  0%,100%{transform:scale(1);opacity:1}
+  50%{transform:scale(1.35);opacity:.7}
+}
 .modal{background:var(--white);border-radius:var(--r);width:100%;max-width:680px;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-lg)}
 .modal-hd{padding:14px 20px;background:var(--spectrum-blue);color:var(--white);border-radius:var(--r) var(--r) 0 0;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--dental-blue)}
 .modal-hd .title{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
@@ -804,6 +898,11 @@ html,body{height:100%;font-family:'Barlow',sans-serif;background:var(--bg);color
   transition:background .12s;flex-shrink:0;
 }
 .gantt-nav-btn:hover{background:rgba(255,255,255,.28)}
+.gantt-nav-right{display:flex;align-items:center;gap:8px}
+.gantt-scale{display:inline-flex;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:5px;padding:2px;gap:2px}
+.gantt-scale-btn{background:transparent;border:0;color:rgba(255,255,255,.7);font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 10px;border-radius:3px;cursor:pointer;transition:background .12s,color .12s}
+.gantt-scale-btn:hover{color:#fff}
+.gantt-scale-btn.active{background:var(--dental-blue);color:var(--spectrum-blue)}
 .gantt-scroll{overflow-x:auto;border:1px solid var(--border);border-top:none;border-radius:0 0 5px 5px}
 .gantt-scroll::-webkit-scrollbar{height:5px}
 .gantt-scroll::-webkit-scrollbar-track{background:#f0f4f8}
@@ -1289,34 +1388,27 @@ body.drawer-open .a3-drw-overlay{ display:block; }
 
 /* Toggle button in header */
 .voice-toggle-btn{
-  display:flex; align-items:center; gap:6px;
-  padding:7px 13px; border-radius:6px;
-  border:1.5px solid var(--border);
-  background:var(--white); color:var(--text-muted);
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.07em;
-  cursor:pointer; transition:all .2s; white-space:nowrap;
-  box-shadow:0 1px 3px rgba(5,32,48,.07);
+  position:relative;
+  background:#fff; border:1px solid var(--header-border);
+  border-radius:8px; min-width:36px; height:34px; padding:0 8px;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition:background .15s, color .15s; color:var(--text);
 }
-.voice-toggle-btn:hover{ border-color:var(--killian-blue); color:var(--killian-blue); }
-.voice-toggle-btn.active{
-  background:var(--spectrum-blue); color:var(--white);
-  border-color:var(--spectrum-blue);
-  box-shadow:0 2px 8px rgba(5,32,48,.25);
-}
-.voice-toggle-btn .mic-icon{
-  font-size:14px; transition:transform .2s;
-}
+.voice-toggle-btn:hover{ background:var(--border-light); }
+.voice-toggle-btn.active{ color:var(--spectrum-blue); }
+.voice-toggle-btn.listening{ color:var(--red); }
+.voice-toggle-btn .mic-icon{ display:flex; align-items:center; }
 .voice-toggle-btn.listening .mic-icon{
   animation: mic-pulse 1s ease-in-out infinite;
 }
 @keyframes mic-pulse{
   0%,100%{ transform:scale(1); }
-  50%{ transform:scale(1.25); }
+  50%{ transform:scale(1.2); }
 }
 .voice-toggle-btn .voice-dot{
-  width:7px; height:7px; border-radius:50%;
-  background:#6b7f96; flex-shrink:0;
+  position:absolute; top:-4px; right:-4px;
+  width:8px; height:8px; border-radius:50%;
+  background:#cbd5e1; border:1.5px solid #fff;
   transition:background .2s;
 }
 .voice-toggle-btn.active .voice-dot{ background:#22c55e; }
@@ -1709,10 +1801,134 @@ body.drawer-open .a3-drw-overlay{ display:block; }
 
 @media(max-width:900px){.container{padding:12px 10px}.kanban{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:700px){.app-header{padding:0 14px}.header-title{font-size:16px}}
+
+/* Action-item row controls (drag-to-reorder / delete) — shared by A3 modal + drawer gantt */
+.act-cell{display:flex;align-items:flex-start;gap:6px}
+.act-input-wrap{flex:1 1 auto;min-width:0}
+.act-tools{display:flex;flex-direction:column;gap:2px;flex:0 0 auto;padding-top:1px}
+.act-tool-btn{width:18px;height:18px;line-height:1;padding:0;border:1px solid var(--border);border-radius:3px;background:var(--white);color:var(--text-muted);font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .12s,color .12s}
+.act-tool-btn:hover{background:var(--border-light);color:var(--text)}
+.act-tool-btn:disabled{opacity:.3;cursor:default}
+.act-tool-del:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.act-drag{width:18px;height:18px;line-height:1;border:1px solid var(--border);border-radius:3px;background:var(--white);color:var(--text-light);font-size:13px;cursor:grab;display:flex;align-items:center;justify-content:center;user-select:none;transition:background .12s,color .12s}
+.act-drag:hover{background:var(--border-light);color:var(--text)}
+.act-drag:active{cursor:grabbing}
+tr.act-dragging > td{opacity:.4}
+tr.act-over > td{box-shadow:inset 0 2px 0 0 var(--killian-blue)}
+
+/* Gantt status color picker popover */
+.status-pop{position:fixed;z-index:1000;display:none;background:var(--white);border:1px solid var(--border);border-radius:6px;box-shadow:var(--shadow-lg);padding:4px;min-width:140px}
+.status-pop-item{display:flex;align-items:center;gap:8px;width:100%;padding:6px 8px;border:0;background:none;cursor:pointer;font-size:12px;color:var(--text);border-radius:4px;text-align:left;font-family:inherit}
+.status-pop-item:hover{background:var(--border-light)}
+.status-pop-item.active{font-weight:700}
+.status-sw{width:16px;height:16px;border-radius:3px;border:1px solid rgba(5,32,48,.15);flex:0 0 auto}
+.status-check{margin-left:auto;color:var(--killian-blue);font-weight:700}
+
+/* A3 autosave status badge */
+.a3-autosave-badge{position:fixed;right:18px;bottom:18px;z-index:1100;background:var(--spectrum-blue);color:#fff;font-size:12px;font-weight:600;padding:7px 14px;border-radius:20px;box-shadow:var(--shadow-lg);opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .18s,transform .18s}
+.a3-autosave-badge.show{opacity:1;transform:translateY(0)}
+.a3-autosave-badge.ok{background:#16a34a}
+.a3-autosave-badge.err{background:var(--red)}
+
+/* Per-project chat / discussion */
+.chat-wrap{display:flex;flex-direction:column;height:440px;max-height:62vh}
+.chat-messages{flex:1 1 auto;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}
+.chat-empty{margin:auto;color:var(--text-muted);font-size:12px;font-style:italic}
+.chat-msg{display:flex;flex-direction:column;align-items:flex-start;max-width:85%}
+.chat-msg.mine{align-self:flex-end;align-items:flex-end}
+.chat-meta{display:flex;gap:6px;align-items:baseline;font-size:10px;color:var(--text-muted);margin:0 2px 2px}
+.chat-auth{font-weight:700;color:var(--text)}
+.chat-bubble{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:7px 11px;font-size:13px;line-height:1.4;color:var(--text);white-space:pre-wrap;word-break:break-word}
+.chat-msg.mine .chat-bubble{background:var(--killian-blue);border-color:var(--killian-blue);color:#fff}
+.chat-composer{border-top:1px solid var(--border);padding:8px;background:var(--white)}
+.chat-author{width:100%;border:1px solid var(--border);border-radius:4px;padding:4px 8px;font-size:11px;margin-bottom:6px;font-family:inherit}
+.chat-row{display:flex;gap:6px;align-items:flex-end}
+.chat-input{flex:1 1 auto;border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-size:13px;resize:none;font-family:inherit;line-height:1.4;max-height:120px}
+.chat-send{flex:0 0 auto;font-size:12px;padding:7px 16px}
+
+/* Header: notifications + account */
+.noti-wrap,.acct-wrap{position:relative}
+.hdr-icon-btn{position:relative;background:#fff;border:1px solid var(--header-border);border-radius:8px;min-width:36px;height:34px;padding:0 8px;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text)}
+.hdr-icon-btn:hover{background:var(--border-light)}
+.noti-badge{position:absolute;top:-5px;right:-5px;background:var(--red);color:#fff;font-size:9px;font-weight:700;min-width:15px;height:15px;border-radius:8px;display:flex;align-items:center;justify-content:center;padding:0 3px}
+.noti-panel{position:absolute;top:42px;right:0;width:320px;max-height:440px;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:var(--shadow-lg);z-index:1200;display:none;flex-direction:column;overflow:hidden}
+.noti-panel.open{display:flex}
+.noti-hd{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-bottom:1px solid var(--border);font-weight:800;font-size:13px;color:var(--text)}
+.noti-readall{background:none;border:0;color:var(--killian-blue);font-size:11px;font-weight:600;cursor:pointer}
+.noti-list{overflow-y:auto;max-height:390px}
+.noti-empty{padding:30px 16px;text-align:center;color:var(--text-muted);display:flex;flex-direction:column;gap:4px}
+.noti-empty strong{color:var(--text);font-size:13px}
+.noti-empty span{font-size:11px}
+.noti-item{display:flex;gap:9px;padding:10px 12px;border-bottom:1px solid var(--border-light);cursor:pointer}
+.noti-item:hover{background:var(--border-light)}
+.noti-item.unread{background:var(--alliance-blue)}
+.noti-ico{flex:0 0 auto;font-size:15px;line-height:1.2}
+.noti-text{font-size:12px;color:var(--text);line-height:1.35}
+.noti-sub{font-size:10px;color:var(--text-muted);margin-top:2px}
+.acct-btn{display:flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--header-border);border-radius:20px;padding:3px 11px 3px 3px;cursor:pointer}
+.acct-btn:hover{background:var(--border-light)}
+.acct-avatar{width:26px;height:26px;border-radius:50%;background:var(--killian-blue);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.acct-name{font-size:12px;font-weight:600;color:var(--text);max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.acct-menu{position:absolute;top:42px;right:0;width:220px;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:var(--shadow-lg);z-index:1200;display:none;overflow:hidden}
+.acct-menu.open{display:block}
+.acct-menu-who{padding:10px 12px;font-size:11px;color:var(--text-muted);border-bottom:1px solid var(--border-light);line-height:1.4}
+.acct-menu-item{display:block;width:100%;text-align:left;background:none;border:0;padding:9px 12px;font-size:12px;color:var(--text);cursor:pointer}
+.acct-menu-item:hover{background:var(--border-light)}
+
+/* Login gate */
+.login-gate{position:fixed;inset:0;background:rgba(5,32,48,.55);backdrop-filter:blur(3px);z-index:2000;display:none;align-items:center;justify-content:center}
+.login-gate.show{display:flex}
+.login-card{background:#fff;border-radius:14px;box-shadow:var(--shadow-lg);padding:26px 24px;width:344px;max-width:92vw;display:flex;flex-direction:column;gap:10px;border-top:4px solid var(--dental-blue)}
+.login-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:17px;color:var(--spectrum-blue)}
+.login-sub{font-size:12px;color:var(--text-muted);margin-bottom:6px;line-height:1.45}
+.login-card input{border:1px solid var(--border);border-radius:7px;padding:9px 11px;font-size:13px;font-family:inherit}
+.login-card input:focus{outline:none;border-color:var(--killian-blue)}
+.login-primary{background:var(--killian-blue);color:#fff;border:0;border-radius:7px;padding:10px;font-size:13px;font-weight:700;cursor:pointer}
+.login-primary:hover{background:#0f6ba8}
+.login-or{text-align:center;font-size:10px;color:var(--text-light);text-transform:uppercase;letter-spacing:.1em;margin:2px 0}
+.login-guest{background:#fff;color:var(--text-muted);border:1px solid var(--border);border-radius:7px;padding:9px;font-size:12px;cursor:pointer}
+.login-guest:hover{background:var(--border-light);color:var(--text)}
+
+/* Account-required prompt */
+.acct-prompt{position:fixed;inset:0;background:rgba(5,32,48,.45);z-index:2100;display:none;align-items:center;justify-content:center}
+.acct-prompt.show{display:flex}
+.acct-prompt-card{background:#fff;border-radius:12px;box-shadow:var(--shadow-lg);padding:22px;width:330px;max-width:90vw}
+.acct-prompt-title{font-weight:800;font-size:15px;color:var(--spectrum-blue);margin-bottom:6px}
+.acct-prompt-text{font-size:12px;color:var(--text-muted);line-height:1.5;margin-bottom:16px}
+.acct-prompt-actions{display:flex;gap:8px;justify-content:flex-end}
+
+/* Assignee picker */
+.assignee-select{font-family:inherit;font-size:12px;border:1px solid var(--border);border-radius:5px;padding:3px 6px;background:#fff;color:var(--text);max-width:180px}
+.drw-assignee-bar{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--text-muted);padding:8px 2px 2px}
 </style>
 </head>
 <body>
 <div class="loading-bar" id="loading-bar"></div>
+
+<!-- Login gate -->
+<div class="login-gate" id="login-gate">
+  <div class="login-card">
+    <div class="login-title">Engineering Project Management</div>
+    <div class="login-sub">Sign in to post in chats, get assigned to projects, and receive notifications.</div>
+    <input type="text" id="login-name" placeholder="Your name" autocomplete="name" onkeydown="if(event.key==='Enter')submitLogin()">
+    <input type="email" id="login-email" placeholder="Email (optional)" autocomplete="email" onkeydown="if(event.key==='Enter')submitLogin()">
+    <button class="login-primary" onclick="submitLogin()">Sign in</button>
+    <div class="login-or">or</div>
+    <button class="login-guest" onclick="continueAsGuest()">Continue as guest (view only)</button>
+  </div>
+</div>
+
+<!-- Account-required prompt -->
+<div class="acct-prompt" id="acct-prompt">
+  <div class="acct-prompt-card">
+    <div class="acct-prompt-title">Account required</div>
+    <div class="acct-prompt-text" id="acct-prompt-text">You need an account to do that.</div>
+    <div class="acct-prompt-actions">
+      <button class="btn btn-ghost" onclick="closeAccountPrompt()">Not now</button>
+      <button class="btn btn-primary" onclick="promptCreateAccount()">Create an account</button>
+    </div>
+  </div>
+</div>
 
 <!-- ══════════════════════════════════════════
      CLEARPATH OS STANDARD MODULE HEADER
@@ -1758,11 +1974,32 @@ body.drawer-open .a3-drw-overlay{ display:block; }
     <!-- Voice command toggle -->
     <button class="voice-toggle-btn" id="voice-toggle-btn" onclick="toggleVoiceCommand()" title="Voice Command — say 'Hey Leo' to activate">
       <span class="voice-dot"></span>
-      <span class="mic-icon">🎙️</span>
-      <span id="voice-toggle-label">Voice Off</span>
+      <span class="mic-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="11" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></svg></span>
     </button>
     <!-- New solution button — far right of slot -->
     <button class="new-btn" onclick="openIntakeForm()">+ New Engineering Solution</button>
+    <!-- Tour -->
+    <button class="hdr-icon-btn" id="tour-btn" onclick="startTour()" title="Guided Tour — learn the app" style="margin-right:2px;position:relative"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg><span class="tour-beacon" id="tour-beacon"></span></button>
+    <!-- Notifications -->
+    <div class="noti-wrap" id="noti-wrap">
+      <button class="hdr-icon-btn" id="noti-bell" onclick="toggleNotiPanel()" title="Notifications"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><span class="noti-badge" id="noti-badge" style="display:none">0</span></button>
+      <div class="noti-panel" id="noti-panel">
+        <div class="noti-hd"><span>Notifications</span><button class="noti-readall" onclick="markAllNotiRead()">Mark all read</button></div>
+        <div class="noti-list" id="noti-list"></div>
+      </div>
+    </div>
+    <!-- Account -->
+    <div class="acct-wrap" id="acct-wrap">
+      <button class="acct-btn" onclick="toggleAcctMenu()" title="Account">
+        <span class="acct-avatar" id="acct-avatar">?</span>
+        <span class="acct-name" id="acct-name">Sign in</span>
+      </button>
+      <div class="acct-menu" id="acct-menu">
+        <div class="acct-menu-who" id="acct-menu-who">Not signed in</div>
+        <button class="acct-menu-item" onclick="switchAccount()">Switch / Sign in…</button>
+        <button class="acct-menu-item" onclick="signOut()">Sign out</button>
+      </div>
+    </div>
   </div>
 
   <!-- RIGHT — do not change sizes/placement -->
@@ -1774,7 +2011,7 @@ body.drawer-open .a3-drw-overlay{ display:block; }
 
 <div class="container">
   <!-- Filters -->
-  <div class="filters" id="top-filters" style="margin-top:14px">
+  <div class="filters" id="top-filters" style="margin-top:6px">
     <div class="filter-group date-group">
       <label class="lbl">Date Range</label>
       <div class="date-row">
@@ -2008,9 +2245,16 @@ body.drawer-open .a3-drw-overlay{ display:block; }
             <span class="lbl">Action Items</span>
 <div class="gantt-wrap" id="a3-gantt-wrap">
               <div class="gantt-nav">
-                <button class="gantt-nav-btn" onclick="shiftGantt('a3',-1)" title="Scroll left">‹</button>
-                <span class="gantt-nav-title" id="a3-gantt-range">—</span>
-                <button class="gantt-nav-btn" onclick="shiftGantt('a3',1)" title="Scroll right">›</button>
+                <div class="gantt-scale" title="Timeline scale">
+                  <button class="gantt-scale-btn" id="a3-scale-day"   onclick="setGanttScale('a3','day')">Day</button>
+                  <button class="gantt-scale-btn" id="a3-scale-week"  onclick="setGanttScale('a3','week')">Week</button>
+                  <button class="gantt-scale-btn" id="a3-scale-month" onclick="setGanttScale('a3','month')">Month</button>
+                </div>
+                <div class="gantt-nav-right">
+                  <button class="gantt-nav-btn" onclick="shiftGantt('a3',-1)" title="Scroll back">‹</button>
+                  <span class="gantt-nav-title" id="a3-gantt-range">—</span>
+                  <button class="gantt-nav-btn" onclick="shiftGantt('a3',1)" title="Scroll forward">›</button>
+                </div>
               </div>
               <div class="gantt-scroll">
                 <table class="a3-actions" id="a3-actions-table">
@@ -2018,7 +2262,6 @@ body.drawer-open .a3-drw-overlay{ display:block; }
                   <tbody id="a3-actions-body"></tbody>
                   <tfoot><tr><td colspan="20" style="padding:5px 8px">
                     <button class="btn btn-ghost" style="background:var(--alliance-blue);color:var(--spectrum-blue);border:1px solid var(--killian-blue);font-size:11px;padding:5px 10px" onclick="addA3Action()">+ Add Action</button>
-                    <button class="btn btn-ghost" style="color:var(--red);border-color:var(--border);font-size:11px;padding:5px 10px;margin-left:6px" onclick="removeA3Action()">− Remove Last</button>
                   </td></tr></tfoot>
                 </table>
               </div>
@@ -2032,6 +2275,7 @@ body.drawer-open .a3-drw-overlay{ display:block; }
           <div class="a3-team-line"><strong>Sponsor</strong><input id="a3-sponsor" type="text" placeholder="—"></div>
           <div class="a3-team-line"><strong>Project Leader</strong><input id="a3-leader" type="text" placeholder="—"></div>
           <div class="a3-team-line"><strong>Engineering Leader</strong><input id="a3-eng-leader" type="text" placeholder="—"></div>
+          <div class="a3-team-line"><strong>Assigned To</strong><select id="a3-assignee" class="assignee-select" onchange="onAssigneeChange('a3')"></select></div>
         </div>
         <div class="a3-cell">
           <div class="a3-team-lbl-row"><strong class="a3-team-sect-title">Team Membership</strong></div>
@@ -2151,6 +2395,21 @@ body.drawer-open .a3-drw-overlay{ display:block; }
           style="display:none" onchange="handleA3Files(this.files)">
         <div class="media-grid" id="a3-media-grid"></div>
         <div class="doc-list" id="a3-doc-list"></div>
+      </div>
+
+      <!-- PROJECT DISCUSSION — same append-only thread as the drawer (project_messages table) -->
+      <div class="a3-cell" style="margin-top:14px">
+        <span class="lbl">💬 Project Discussion</span>
+        <div class="chat-wrap" style="border:1px solid var(--border);border-radius:6px;overflow:hidden">
+          <div class="chat-messages" id="a3-chat-messages"></div>
+          <div class="chat-composer">
+            <input type="text" class="chat-author" id="a3-chat-author" placeholder="Your name (shown on your messages)" oninput="setChatAuthor(this.value)">
+            <div class="chat-row">
+              <textarea id="a3-chat-input" class="chat-input" rows="1" placeholder="Write a message…  (Enter to send · Shift+Enter for a new line)" onkeydown="chatKeydown(event,'a3')"></textarea>
+              <button class="btn btn-primary chat-send" onclick="postChat('a3')">Send</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="a3-ft">
@@ -2546,10 +2805,11 @@ function renderKanban(){
     const milestones=phase.milestones||[];
     const inGate=m=>items.filter(i=>(i.milestone||'')===m);
     const unassigned=items.filter(i=>!i.milestone||!milestones.includes(i.milestone));
-    let bodyHtml=`<div class="gate collapsed" data-milestone=""><div class="gate-hd unassigned"><span class="gate-num">·</span><div class="gate-title-wrap"><span class="gate-title">Unassigned</span></div><div class="gate-right"><span class="gate-count">${unassigned.length}</span><span class="gate-chevron"></span></div></div><div class="gate-body">${unassigned.length?unassigned.map(renderCard).join(''):'<div class="gate-empty">Drop here to clear milestone</div>'}</div></div>`;
+    let bodyHtml=phase.key==='Discovery'?`<div class="gate collapsed" data-milestone=""><div class="gate-hd unassigned"><span class="gate-num">·</span><div class="gate-title-wrap"><span class="gate-title">Unassigned</span></div><div class="gate-right"><span class="gate-count">${unassigned.length}</span><span class="gate-chevron"></span></div></div><div class="gate-body">${unassigned.length?unassigned.map(renderCard).join(''):'<div class="gate-empty">Drop here to clear milestone</div>'}</div></div>`:'';
     milestones.forEach((m,idx)=>{ const cards=inGate(m); bodyHtml+=`<div class="gate" data-milestone="${esc(m)}"><div class="gate-hd"><span class="gate-num">${idx+1}</span><div class="gate-title-wrap"><span class="gate-title">${esc(m)}</span></div><div class="gate-right"><span class="gate-count">${cards.length}</span><span class="gate-chevron"></span></div></div><div class="gate-body">${cards.length?cards.map(renderCard).join(''):'<div class="gate-empty">Drop here · '+esc(m)+'</div>'}</div></div>`; });
     const milestonesHtml=phase.milestones?.length?`<div class="lane-milestones"><div class="lm-title">Key Milestones</div><ol class="lm-list">${phase.milestones.map(m=>`<li>${esc(m)}</li>`).join('')}</ol></div>`:'';
-    lane.innerHTML=`<div class="lane-hd"><div class="lane-top-row"><span class="lane-num"><span class="step-word">Step</span><span class="step-digit">${esc(phase.num)}</span></span></div><div class="lane-name">${esc(phase.name)}</div><div class="lane-headline">${esc(phase.headline)}</div><div class="lane-sub lane-sub-text">${esc(phase.sub)}</div>${milestonesHtml}<div class="lane-count-row"><span class="lane-count-lbl">Projects</span><span class="lane-count">${items.length}</span></div></div><div class="lane-body">${bodyHtml}</div>`;
+    lane.innerHTML=`<div class="lane-hd"><div class="lane-top-row"><span class="lane-count-badge-new"><span class="lcb-label">Count</span><span class="lcb-num">${items.length}</span></span></div><div class="lane-name-row"><span class="lane-step-num-box">${Number(phase.num)}</span><span class="lane-name">${esc(phase.name)}</span></div><div class="lane-headline">${esc(phase.headline)}</div><div class="lane-sub lane-sub-text">${esc(phase.sub)}</div>${milestonesHtml}</div><div class="lane-body">${bodyHtml}</div>`;
+
     for(const gate of lane.querySelectorAll('.gate')){
       gate.addEventListener('dragover',e=>{ e.preventDefault(); e.stopPropagation(); for(const g of lane.querySelectorAll('.gate.drop-target')) g.classList.remove('drop-target'); gate.classList.add('drop-target'); gate.classList.remove('collapsed'); });
       gate.addEventListener('dragleave',e=>{ gate.classList.remove('drop-target'); });
@@ -2765,6 +3025,7 @@ let A3_EDITING_ID=null, A3_ACTIONS=[];
 const A3_MON_STATES=['','planned','ontrack','late','complete'];
 function openA3Modal(id){
   A3_EDITING_ID=id; const p=DATA.find(x=>x.id===id); if(!p) return;
+  A3_AUTOSAVE_SUSPEND=true;   // don't autosave while populating the form
   const a3=(p.a3_data&&typeof p.a3_data==='object')?p.a3_data:{};
   document.getElementById('a3-title').textContent=p.title;
   document.getElementById('a3-status-dot').className='a3-status-dot '+statusDotClass(Number(p.engineering_status)||0);
@@ -2779,6 +3040,7 @@ function openA3Modal(id){
   document.getElementById('a3-sav-realized').textContent=fmt$(mRea);
   document.getElementById('a3-sav-pct').textContent=mSav?Math.round(mRea/mSav*100)+'%':'0%';
   A3_ACTIONS=Array.isArray(a3.actionItems)?JSON.parse(JSON.stringify(a3.actionItems)):[];
+  A3_GANTT_SCALE = a3.ganttScale || 'month'; A3_GANTT_OFFSET = 0;
   renderA3Actions();
   // Load team members
   if(Array.isArray(a3.teamMembers)){
@@ -2795,6 +3057,8 @@ function openA3Modal(id){
   }
   renderA3ModalMedia();
   loadSignOffs(a3);
+  A3_CHAT = []; loadChatMessages('a3', id); startChatPolling('a3', id);   // per-project discussion thread
+  fillAssigneeSelect('a3', (a3.assignee && a3.assignee.id) || '');
   document.getElementById('a3-mask').classList.add('show');
   // Auto-size Problem Statement, Goal, Description to fit their content on open
   requestAnimationFrame(()=>{
@@ -2802,77 +3066,105 @@ function openA3Modal(id){
       const el = document.getElementById(id);
       if(el){ el.style.height='auto'; el.style.height=Math.max(el.scrollHeight,36)+'px'; }
     });
+    A3_LAST_SAVED_SIG = JSON.stringify(buildA3ModalData());  // baseline for autosave change-detection
+    A3_AUTOSAVE_SUSPEND = false;
   });
 }
-function closeA3Modal(){ document.getElementById('a3-mask').classList.remove('show'); A3_EDITING_ID=null; }
+function closeA3Modal(){ flushAutosave(); stopChatPolling(); document.getElementById('a3-mask').classList.remove('show'); A3_EDITING_ID=null; }
 /* ═══════════════════════════════════════════════════════════
    ROLLING GANTT — shared by A3 modal ('a3') and drawer ('drw')
    Stores 24 months of status per action item (keyed by YYYY-MM)
 ═══════════════════════════════════════════════════════════ */
 const MON_NAMES  = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const MON_FULL   = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const DOW_NAMES  = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 const GANTT_COLS = 12;   // visible columns
 
-// Each context tracks its own start offset (months from today's month)
+// Each context tracks its own start offset (in units of the current scale) and scale
 let A3_GANTT_OFFSET = 0;
 let DRW_GANTT_OFFSET = 0;
+let A3_GANTT_SCALE  = 'month';   // 'day' | 'week' | 'month'
+let DRW_GANTT_SCALE = 'month';
 
-function ganttMonths(offset){
-  // Returns array of {year, month(0-11), label, yyyymm} for GANTT_COLS months
+function ymdKey(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+function startOfWeek(d){ const x=new Date(d.getFullYear(),d.getMonth(),d.getDate()); x.setDate(x.getDate()-x.getDay()); return x; } // Sunday start
+function sameDay(a,b){ return a.getFullYear()===b.getFullYear()&&a.getMonth()===b.getMonth()&&a.getDate()===b.getDate(); }
+
+// Returns GANTT_COLS period descriptors for the given scale + offset.
+// Each: {key, group, label, sub, full, isNow}. `key` is what status is stored under.
+function ganttPeriods(scale, offset){
   const now = new Date();
-  const base = new Date(now.getFullYear(), now.getMonth() + offset, 1);
-  const months = [];
-  for(let i=0; i<GANTT_COLS; i++){
-    const d = new Date(base.getFullYear(), base.getMonth()+i, 1);
-    months.push({
-      year:  d.getFullYear(),
-      month: d.getMonth(),
-      label: MON_NAMES[d.getMonth()],
-      full:  MON_FULL[d.getMonth()],
-      yyyymm: d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0'),
-      isNow: d.getFullYear()===now.getFullYear() && d.getMonth()===now.getMonth(),
-    });
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const out = [];
+  if(scale==='day'){
+    const base = new Date(today); base.setDate(base.getDate()+offset);
+    for(let i=0;i<GANTT_COLS;i++){
+      const d=new Date(base); d.setDate(base.getDate()+i);
+      out.push({ key:ymdKey(d), group:MON_FULL[d.getMonth()]+' '+d.getFullYear(),
+        label:String(d.getDate()), sub:DOW_NAMES[d.getDay()],
+        full:DOW_NAMES[d.getDay()]+' '+MON_NAMES[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear(),
+        isNow:sameDay(d,today) });
+    }
+  } else if(scale==='week'){
+    const base = startOfWeek(today); base.setDate(base.getDate()+offset*7);
+    const tw = startOfWeek(today);
+    for(let i=0;i<GANTT_COLS;i++){
+      const d=new Date(base); d.setDate(base.getDate()+i*7);
+      out.push({ key:ymdKey(d), group:MON_FULL[d.getMonth()]+' '+d.getFullYear(),
+        label:(d.getMonth()+1)+'/'+d.getDate(), sub:'wk',
+        full:'Week of '+MON_NAMES[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear(),
+        isNow:sameDay(d,tw) });
+    }
+  } else { // month
+    const base = new Date(today.getFullYear(), today.getMonth()+offset, 1);
+    for(let i=0;i<GANTT_COLS;i++){
+      const d=new Date(base.getFullYear(), base.getMonth()+i, 1);
+      out.push({ key:d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0'), group:String(d.getFullYear()),
+        label:MON_NAMES[d.getMonth()], sub:MON_NAMES[d.getMonth()]+" '"+String(d.getFullYear()).slice(2),
+        full:MON_FULL[d.getMonth()]+' '+d.getFullYear(),
+        isNow:d.getFullYear()===today.getFullYear() && d.getMonth()===today.getMonth() });
+    }
   }
-  return months;
+  return out;
 }
 
-function buildGanttHead(months, ctx){
-  // Year spanning row
-  const yearSpans = [];
-  let run = {year: months[0].year, count:0};
-  months.forEach(m=>{ if(m.year===run.year){run.count++;}else{yearSpans.push({...run});run={year:m.year,count:1};} });
-  yearSpans.push({...run});
+function buildGanttHead(periods){
+  // Spanning group row (year for months, month for weeks/days)
+  const groups = [];
+  let run = {g: periods[0].group, count:0};
+  periods.forEach(p=>{ if(p.group===run.g){run.count++;}else{groups.push({...run});run={g:p.group,count:1};} });
+  groups.push({...run});
 
-  const yrCells = yearSpans.map(y=>`<th colspan="${y.count}" class="th-label" style="text-align:center">${y.year}</th>`).join('');
-  const moCells = months.map(m=>`<th class="${m.isNow?'th-curr':''}">${m.label}</th>`).join('');
-  const dtCells = months.map(m=>`<th class="${m.isNow?'dt-curr':''}">${m.year}</th>`).join('');
+  const grpCells = groups.map(g=>`<th colspan="${g.count}" class="th-label" style="text-align:center">${g.g}</th>`).join('');
+  const lblCells = periods.map(p=>`<th class="${p.isNow?'th-curr':''}">${p.label}</th>`).join('');
+  const subCells = periods.map(p=>`<th class="${p.isNow?'dt-curr':''}">${p.sub}</th>`).join('');
 
   return `
     <tr class="yr-row">
       <th class="th-label" rowspan="1" style="min-width:240px">Action</th>
       <th class="th-label" style="min-width:110px">Who</th>
-      ${yrCells}
+      ${grpCells}
     </tr>
     <tr class="mo-row">
       <th class="th-label">Action Item</th>
       <th class="th-who">Assigned To</th>
-      ${moCells}
+      ${lblCells}
     </tr>
     <tr class="dt-row">
       <th class="th-label"></th>
       <th class="th-who"></th>
-      ${months.map(m=>`<th class="${m.isNow?'dt-curr':''}">${m.full.slice(0,3)} '${String(m.year).slice(2)}</th>`).join('')}
+      ${subCells}
     </tr>`;
 }
 
-function buildGanttRange(months){
-  const first = months[0], last = months[months.length-1];
-  return first.full+' '+first.year+' → '+last.full+' '+last.year;
+function buildGanttRange(periods){
+  const first = periods[0], last = periods[periods.length-1];
+  return first.full+'  →  '+last.full;
 }
 
-function ensureMonthKey(a, yyyymm){
+function ensureMonthKey(a, key){
   if(!a.monthKeys) a.monthKeys = {};
-  // Migrate legacy indexed array if needed
+  // Migrate legacy indexed array if needed (month-scale data only)
   if(Array.isArray(a.months) && a.months.length && !Object.keys(a.monthKeys).length){
     const now = new Date();
     a.months.forEach((s,i)=>{
@@ -2881,22 +3173,28 @@ function ensureMonthKey(a, yyyymm){
       if(s) a.monthKeys[k] = s;
     });
   }
-  return a.monthKeys[yyyymm]||'';
+  return a.monthKeys[key]||'';
 }
 
 function renderGantt(ctx){
   const actions = ctx==='a3' ? A3_ACTIONS : DRW_ACTIONS;
   const offset  = ctx==='a3' ? A3_GANTT_OFFSET : DRW_GANTT_OFFSET;
-  const months  = ganttMonths(offset);
-  const states  = ['','planned','ontrack','late','complete'];
+  const scale   = ctx==='a3' ? A3_GANTT_SCALE  : DRW_GANTT_SCALE;
+  const periods = ganttPeriods(scale, offset);
+
+  // Reflect active scale on the Day/Week/Month toggle
+  ['day','week','month'].forEach(s=>{
+    const btn = document.getElementById(ctx+'-scale-'+s);
+    if(btn) btn.classList.toggle('active', s===scale);
+  });
 
   // Update nav range label
   const rangeEl = document.getElementById(ctx+'-gantt-range');
-  if(rangeEl) rangeEl.textContent = buildGanttRange(months);
+  if(rangeEl) rangeEl.textContent = buildGanttRange(periods);
 
   // Thead
   const thead = document.getElementById(ctx+'-actions-thead');
-  if(thead) thead.innerHTML = buildGanttHead(months, ctx);
+  if(thead) thead.innerHTML = buildGanttHead(periods);
 
   // Tbody
   const tb = document.getElementById(ctx+'-actions-body');
@@ -2908,11 +3206,11 @@ function renderGantt(ctx){
   }
 
   tb.innerHTML = actions.map((a,i)=>{
-    const monCells = months.map(m=>{
-      const key = m.yyyymm;
+    const monCells = periods.map(p=>{
+      const key = p.key;
       const status = ensureMonthKey(a, key);
-      const curr = m.isNow ? ' curr-col' : '';
-      return `<td class="mon"><span class="mon-cell ${status}${curr}" title="${m.full} ${m.year}" onclick="${ctx==='a3'?'cycleA3Status':'cycleDrwStatus'}(${i},'${key}')"></span></td>`;
+      const curr = p.isNow ? ' curr-col' : '';
+      return `<td class="mon"><span class="mon-cell ${status}${curr}" title="${p.full} — click to set status" onclick="openStatusPicker(event,'${ctx}',${i},'${key}')"></span></td>`;
     }).join('');
     const actionInput = ctx==='a3'
       ? `<textarea rows="2" placeholder="Action…" oninput="A3_ACTIONS[${i}].action=this.value;autoResizeTA(this)">${esc(a.action||'')}</textarea>`
@@ -2920,7 +3218,11 @@ function renderGantt(ctx){
     const whoInput = ctx==='a3'
       ? `<input type="text" value="${esc(a.who||'')}" placeholder="Who…" oninput="A3_ACTIONS[${i}].who=this.value">`
       : `<input type="text" value="${esc(a.who||'')}" placeholder="Who…" style="width:100%;border:1px solid var(--border);border-radius:3px;padding:3px 5px;font-size:12px" oninput="DRW_ACTIONS[${i}].who=this.value">`;
-    return `<tr><td>${actionInput}</td><td>${whoInput}</td>${monCells}</tr>`;
+    const rowTools = `<div class="act-tools">`
+      + `<span class="act-drag" draggable="true" title="Drag to reorder" ondragstart="actDragStart(event,'${ctx}',${i})" ondragend="actDragEnd(event)">⠿</span>`
+      + `<button type="button" class="act-tool-btn act-tool-del" title="Delete this row" onclick="deleteAction('${ctx}',${i})">✕</button>`
+      + `</div>`;
+    return `<tr data-actidx="${i}" ondragover="actDragOver(event,'${ctx}')" ondragleave="actDragLeave(event)" ondrop="actDrop(event,'${ctx}',${i})"><td><div class="act-cell">${rowTools}<div class="act-input-wrap">${actionInput}</div></div></td><td>${whoInput}</td>${monCells}</tr>`;
   }).join('');
   // Resize all action textareas after DOM settles
   requestAnimationFrame(()=>autoResizeAllTA(ctx));
@@ -2932,6 +3234,13 @@ function shiftGantt(ctx, dir){
   renderGantt(ctx);
 }
 
+function setGanttScale(ctx, scale){
+  if(ctx==='a3'){ A3_GANTT_SCALE = scale; A3_GANTT_OFFSET = 0; }
+  else { DRW_GANTT_SCALE = scale; DRW_GANTT_OFFSET = 0; }   // reset offset — units differ per scale
+  renderGantt(ctx);
+  scheduleAutosave();   // persist the chosen timeline scale with the project
+}
+
 function renderA3Actions(){ renderGantt('a3'); }
 function renderDrwActions(){ renderGantt('drw'); }
 
@@ -2939,39 +3248,169 @@ function addA3Action(){
   A3_ACTIONS.push({action:'',who:'',months:[],monthKeys:{}});
   renderGantt('a3');
 }
-function removeA3Action(){ A3_ACTIONS.pop(); renderGantt('a3'); }
 function addDrwAction(){
   DRW_ACTIONS.push({action:'',who:'',months:[],monthKeys:{}});
   renderGantt('drw');
 }
-function removeDrwAction(){ DRW_ACTIONS.pop(); renderGantt('drw'); }
 
-function cycleA3Status(ri, yyyymm){
-  const a=A3_ACTIONS[ri]; if(!a) return;
-  if(!a.monthKeys) a.monthKeys={};
-  const states=['','planned','ontrack','late','complete'];
-  const cur=a.monthKeys[yyyymm]||'';
-  const next=states[(states.indexOf(cur)+1)%states.length];
-  if(next) a.monthKeys[yyyymm]=next; else delete a.monthKeys[yyyymm];
-  renderGantt('a3');
+/* Drag-to-reorder + delete for action-item rows (shared by 'a3' and 'drw' gantt) */
+let ACT_DRAG = { ctx:null, from:-1 };
+function actDragStart(e, ctx, i){
+  ACT_DRAG = { ctx, from:i };
+  e.dataTransfer.effectAllowed = 'move';
+  e.dataTransfer.setData('text/plain', String(i));
+  const tr = e.target.closest('tr');
+  if(tr){ tr.classList.add('act-dragging'); try{ e.dataTransfer.setDragImage(tr, 18, 14); }catch(_){} }
 }
-function cycleDrwStatus(ri, yyyymm){
-  const a=DRW_ACTIONS[ri]; if(!a) return;
-  if(!a.monthKeys) a.monthKeys={};
-  const states=['','planned','ontrack','late','complete'];
-  const cur=a.monthKeys[yyyymm]||'';
-  const next=states[(states.indexOf(cur)+1)%states.length];
-  if(next) a.monthKeys[yyyymm]=next; else delete a.monthKeys[yyyymm];
-  renderGantt('drw');
+function actDragEnd(e){
+  const tr = e.target.closest('tr'); if(tr) tr.classList.remove('act-dragging');
+  document.querySelectorAll('tr.act-over').forEach(r=>r.classList.remove('act-over'));
 }
-async function saveA3(){
-  if(!A3_EDITING_ID) return;
+function actDragOver(e, ctx){
+  if(ACT_DRAG.ctx !== ctx) return;          // only reorder within the same gantt
+  e.preventDefault();                        // also cancels native text-drop into the inputs
+  e.dataTransfer.dropEffect = 'move';
+  const tr = e.currentTarget;
+  document.querySelectorAll('tr.act-over').forEach(r=>{ if(r!==tr) r.classList.remove('act-over'); });
+  tr.classList.add('act-over');
+}
+function actDragLeave(e){ e.currentTarget.classList.remove('act-over'); }
+function actDrop(e, ctx, i){
+  if(ACT_DRAG.ctx !== ctx) return;
+  e.preventDefault();
+  const arr = ctx==='a3' ? A3_ACTIONS : DRW_ACTIONS;
+  const from = ACT_DRAG.from;
+  ACT_DRAG = { ctx:null, from:-1 };
+  document.querySelectorAll('tr.act-over,tr.act-dragging').forEach(r=>r.classList.remove('act-over','act-dragging'));
+  if(from < 0 || from >= arr.length) return;
+  // Drop before or after the target row depending on which half the cursor is in
+  const rect = e.currentTarget.getBoundingClientRect();
+  const after = (e.clientY - rect.top) > rect.height/2;
+  let to = i + (after ? 1 : 0);
+  const [moved] = arr.splice(from, 1);
+  if(from < to) to--;                         // removing the source shifts indices above it
+  to = Math.max(0, Math.min(to, arr.length));
+  arr.splice(to, 0, moved);
+  renderGantt(ctx);
+  scheduleAutosave();
+}
+function deleteAction(ctx, i){
+  const arr = ctx==='a3' ? A3_ACTIONS : DRW_ACTIONS;
+  if(i < 0 || i >= arr.length) return;
+  arr.splice(i, 1);
+  renderGantt(ctx);
+}
+
+/* Status options for the Gantt cells — colors mirror the .mon-cell.* CSS */
+const GANTT_STATES = [
+  {key:'',         label:'None',     color:'#eef2f7'},
+  {key:'planned',  label:'Planned',  color:'var(--alliance-blue)'},
+  {key:'ontrack',  label:'On Track', color:'var(--killian-blue)'},
+  {key:'late',     label:'Late',     color:'var(--red)'},
+  {key:'complete', label:'Complete', color:'#22c55e'}
+];
+
+function setStatusValue(ctx, ri, yyyymm, val){
+  const arr = ctx==='a3' ? A3_ACTIONS : DRW_ACTIONS;
+  const a = arr[ri]; if(!a) return;
+  if(!a.monthKeys) a.monthKeys = {};
+  if(val) a.monthKeys[yyyymm] = val; else delete a.monthKeys[yyyymm];
+  renderGantt(ctx);
+  scheduleAutosave();
+}
+
+/* Direct color/status picker popover (replaces click-to-cycle) */
+function openStatusPicker(e, ctx, ri, yyyymm){
+  e.stopPropagation();
+  let pop = document.getElementById('status-pop');
+  if(!pop){ pop = document.createElement('div'); pop.id='status-pop'; pop.className='status-pop'; document.body.appendChild(pop); }
+  const arr = ctx==='a3' ? A3_ACTIONS : DRW_ACTIONS;
+  const cur = (arr[ri] && arr[ri].monthKeys && arr[ri].monthKeys[yyyymm]) || '';
+  pop.innerHTML = GANTT_STATES.map(s=>
+    `<button type="button" class="status-pop-item${s.key===cur?' active':''}" onclick="pickStatus('${ctx}',${ri},'${yyyymm}','${s.key}')">`
+    + `<span class="status-sw" style="background:${s.color}"></span>${s.label}`
+    + `${s.key===cur?'<span class="status-check">✓</span>':''}</button>`
+  ).join('');
+  pop.style.display='block';
+  // Position under the clicked cell, flipping/clamping to stay on screen
+  const r = e.currentTarget.getBoundingClientRect();
+  const vw = document.documentElement.clientWidth, vh = document.documentElement.clientHeight;
+  const pw = pop.offsetWidth, ph = pop.offsetHeight;
+  let left = r.left, top = r.bottom + 4;
+  if(left + pw > vw - 8) left = vw - pw - 8;
+  if(left < 8) left = 8;
+  if(top + ph > vh - 8) top = r.top - ph - 4;
+  pop.style.left = left + 'px';
+  pop.style.top  = top + 'px';
+}
+function pickStatus(ctx, ri, yyyymm, val){ setStatusValue(ctx, ri, yyyymm, val); closeStatusPicker(); }
+function closeStatusPicker(){ const pop = document.getElementById('status-pop'); if(pop) pop.style.display='none'; }
+// Dismiss the picker on outside click or Escape
+document.addEventListener('click', e=>{ const pop=document.getElementById('status-pop'); if(pop && pop.style.display!=='none' && !pop.contains(e.target)) closeStatusPicker(); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeStatusPicker(); });
+/* ─────────────────────────────────────────────────────────
+   A3 AUTOSAVE — debounced silent background save for the A3
+   modal and the Live A3 drawer. Fires on any edit, skips the
+   network call when nothing actually changed, and flushes on
+   close so in-flight edits are never lost.
+───────────────────────────────────────────────────────── */
+let A3_AUTOSAVE_TIMER   = null;
+let A3_AUTOSAVE_SUSPEND = false;   // true while a record is being loaded into the form
+let A3_LAST_SAVED_SIG   = '';      // JSON signature of the last persisted a3_data
+const A3_AUTOSAVE_DELAY = 1200;
+
+function activeA3Ctx(){
+  if(document.getElementById('a3-mask').classList.contains('show'))  return 'a3';
+  if(document.getElementById('a3-drawer').classList.contains('open')) return 'drw';
+  return null;
+}
+function setA3SaveStatus(state){
+  let el = document.getElementById('a3-autosave-badge');
+  if(!el){ el=document.createElement('div'); el.id='a3-autosave-badge'; el.className='a3-autosave-badge'; document.body.appendChild(el); }
+  const map = {
+    pending:{t:'Editing…',              c:''},
+    saving: {t:'Saving…',               c:''},
+    saved:  {t:'All changes saved ✓',   c:'ok'},
+    error:  {t:'Autosave failed — click Save', c:'err'}
+  };
+  const m = map[state] || map.saved;
+  el.textContent = m.t;
+  el.className = 'a3-autosave-badge show ' + m.c;
+  clearTimeout(el._hide);
+  if(state==='saved' || state==='error'){ el._hide = setTimeout(()=>el.classList.remove('show'), 2200); }
+}
+function scheduleAutosave(){
+  if(A3_AUTOSAVE_SUSPEND) return;
+  if(!activeA3Ctx()) return;
+  setA3SaveStatus('pending');
+  clearTimeout(A3_AUTOSAVE_TIMER);
+  A3_AUTOSAVE_TIMER = setTimeout(runAutosave, A3_AUTOSAVE_DELAY);
+}
+function runAutosave(){
+  A3_AUTOSAVE_TIMER = null;
+  const ctx = activeA3Ctx();
+  if(ctx==='a3') saveA3({silent:true});
+  else if(ctx==='drw') saveDrwA3({silent:true});
+}
+// Flush any pending autosave immediately (used when closing)
+function flushAutosave(){
+  if(!A3_AUTOSAVE_TIMER) return;
+  clearTimeout(A3_AUTOSAVE_TIMER); A3_AUTOSAVE_TIMER = null;
+  runAutosave();
+}
+// Any edit inside the A3 modal or drawer schedules an autosave. Delegated on
+// document because the drawer markup is defined later in the file than this script.
+['input','change','click'].forEach(evt=>{
+  document.addEventListener(evt, e=>{
+    if(e.target.closest && e.target.closest('#a3-mask, #a3-drawer')) scheduleAutosave();
+  });
+});
+
+function buildA3ModalData(){
   const p = DATA.find(x=>x.id===A3_EDITING_ID);
   const oldA3 = (p&&p.a3_data&&typeof p.a3_data==='object') ? p.a3_data : {};
-
   const gv = id => { const el=document.getElementById(id); return el?el.value:''; };
-
-  const a3_data = {
+  return {
     ...oldA3,
     problemStatement: gv('a3-problem'),
     goal:             gv('a3-goal'),
@@ -2980,7 +3419,7 @@ async function saveA3(){
     projectLeader:    gv('a3-leader'),
     engineeringLeader:gv('a3-eng-leader'),
     teamMembership:   A3_TEAM.map(m=>m.name).filter(Boolean).join(', '),
-    teamMembers:      A3_TEAM,
+    teamMembers:      A3_TEAM,                 // fixed: was overwritten by a duplicate stale key, so team edits never saved
     inScope:          gv('a3-in-scope'),
     outOfScope:       gv('a3-out-of-scope'),
     deliverables:     gv('a3-deliverables'),
@@ -2989,21 +3428,32 @@ async function saveA3(){
     risks:            gv('a3-risks'),
     mitigations:      gv('a3-mitigations'),
     actionItems:      A3_ACTIONS.filter(a=>a.action||a.who),
-    media:            DRW_MEDIA,  // shared with live drawer
-    teamMembers:      oldA3.teamMembers||[],
+    media:            DRW_MEDIA,               // shared with live drawer
     roi:              oldA3.roi||{materials:[],labor:[]},
     signOffs:         readSignOffs(),
+    ganttScale:       A3_GANTT_SCALE,
   };
+}
 
+async function saveA3(opts){
+  const silent = !!(opts && opts.silent);
+  if(isGuest()){ if(!silent) showAccountPrompt('edit projects'); return; }   // guests are view-only
+  const id = A3_EDITING_ID;
+  if(!id) return;
+  const a3_data = buildA3ModalData();
+  const sig = JSON.stringify(a3_data);
+  if(silent && sig === A3_LAST_SAVED_SIG){ setA3SaveStatus('saved'); return; }  // no real change → skip network
+  if(silent) setA3SaveStatus('saving');
   try{
-    const result = await sbFetch(`npi_projects?id=eq.${A3_EDITING_ID}`,'PATCH',{a3_data, updated_at:new Date().toISOString()});
-    console.log('[saveA3] PATCH result:', result);
-    toast('A3 saved ✓');
-    closeA3Modal();
-    await loadProjects();
+    const result = await sbFetch(`npi_projects?id=eq.${id}`,'PATCH',{a3_data, updated_at:new Date().toISOString()});
+    A3_LAST_SAVED_SIG = sig;
+    const p = DATA.find(x=>x.id===id); if(p){ p.a3_data = a3_data; p.updated_at = new Date().toISOString(); }
+    if(silent){ setA3SaveStatus('saved'); }
+    else { console.log('[saveA3] PATCH result:', result); toast('A3 saved ✓'); closeA3Modal(); await loadProjects(); }
   } catch(e){
     console.error('[saveA3] error:', e);
-    alert('A3 save failed: '+e.message);
+    if(silent){ setA3SaveStatus('error'); }
+    else { alert('A3 save failed: '+e.message); }
   }
 }
 async function deleteA3(){
@@ -3054,8 +3504,401 @@ async function seedSampleProjects(){
   setLoading(false); toast(`Seeded ${ok} project${ok===1?'':'s'}${fail?` · ${fail} failed`:''}`); await loadProjects();
 }
 
+/* ═══════════════════════════════════════════════════════════
+   ACCOUNTS · GUESTS · NOTIFICATIONS
+═══════════════════════════════════════════════════════════ */
+let ME = null;                 // {id,name,email} when signed in · {guest:true} for guest
+let MEMBERS = [];              // cached skdla_members directory
+let NOTIS = [];
+let NOTI_POLL_TIMER = null;
+
+function meName(){ return (ME && ME.name) ? ME.name : 'Someone'; }
+function isGuest(){ return !!(ME && ME.guest); }
+function isMember(){ return !!(ME && ME.id); }
+
+/* ---- members directory ---- */
+async function loadMembers(){
+  try{ MEMBERS = await sbFetch('skdla_members?select=id,name,email&order=name.asc') || []; }
+  catch(e){ console.warn('[members] load failed:', e.message); }
+  return MEMBERS;
+}
+async function upsertMember(name, email){
+  name=(name||'').trim(); email=(email||'').trim();
+  if(email){
+    const found = await sbFetch(`skdla_members?email=eq.${encodeURIComponent(email)}&select=id,name,email`);
+    if(found && found[0]) return found[0];
+  }
+  const rows = await sbFetch('skdla_members','POST',{ name, email: email||null });
+  return rows && rows[0];
+}
+
+/* ---- session ---- */
+function loadSession(){ try{ ME = JSON.parse(localStorage.getItem('skdla_me')||'null'); }catch(_){ ME=null; } }
+function saveSession(){ localStorage.setItem('skdla_me', JSON.stringify(ME)); }
+async function signIn(name, email){
+  try{
+    const m = await upsertMember(name, email);
+    if(!m){ alert('Could not sign in — please try again.'); return; }
+    ME = { id:m.id, name:m.name, email:m.email||'' };
+    saveSession(); hideLoginGate(); afterAuth();
+  }catch(e){ alert('Sign-in failed: '+e.message); }
+}
+function continueAsGuest(){ ME = { guest:true }; saveSession(); hideLoginGate(); afterAuth(); }
+function switchAccount(){ document.getElementById('acct-menu').classList.remove('open'); showLoginGate(); }
+function signOut(){ ME=null; localStorage.removeItem('skdla_me'); stopNotiPolling(); document.getElementById('acct-menu').classList.remove('open'); renderAccountUI(); showLoginGate(); }
+function afterAuth(){
+  renderAccountUI();
+  loadMembers();
+  if(isMember()){ loadNotifications(); startNotiPolling(); if(!localStorage.getItem('skdla_tour_seen')) setTimeout(startTour, 600); else maybeShowTourBeacon(); }
+  else { NOTIS=[]; renderNotifications(); updateNotiBadge(); }
+}
+
+/* ---- login gate ---- */
+function showLoginGate(){ const g=document.getElementById('login-gate'); if(g){ g.classList.add('show'); const n=document.getElementById('login-name'); if(n) setTimeout(()=>n.focus(),60);} }
+function hideLoginGate(){ const g=document.getElementById('login-gate'); if(g) g.classList.remove('show'); }
+function submitLogin(){
+  const name=document.getElementById('login-name').value.trim();
+  const email=document.getElementById('login-email').value.trim();
+  if(!name){ document.getElementById('login-name').focus(); return; }
+  signIn(name, email);
+}
+
+/* ---- account chip ---- */
+function initials(n){ return ((n||'?').trim().split(/\s+/).map(w=>w[0]).slice(0,2).join('')||'?').toUpperCase(); }
+function renderAccountUI(){
+  const av=document.getElementById('acct-avatar'), nm=document.getElementById('acct-name'), who=document.getElementById('acct-menu-who');
+  if(isGuest()){ if(av) av.textContent='G'; if(nm) nm.textContent='Guest'; if(who) who.textContent='Viewing as guest (read-only)'; }
+  else if(isMember()){ if(av) av.textContent=initials(ME.name); if(nm) nm.textContent=ME.name; if(who) who.textContent='Signed in as '+ME.name+(ME.email?(' · '+ME.email):''); }
+  else { if(av) av.textContent='?'; if(nm) nm.textContent='Sign in'; if(who) who.textContent='Not signed in'; }
+}
+function toggleAcctMenu(){ document.getElementById('acct-menu').classList.toggle('open'); document.getElementById('noti-panel').classList.remove('open'); }
+
+/* ---- account-required popup ---- */
+function requireAccount(actionLabel){ if(isMember()) return true; showAccountPrompt(actionLabel||'do that'); return false; }
+function showAccountPrompt(label){
+  document.getElementById('acct-prompt-text').textContent = 'You need an account to '+label+'. Guests can view only — create a quick profile (no password) to take part.';
+  document.getElementById('acct-prompt').classList.add('show');
+}
+function closeAccountPrompt(){ document.getElementById('acct-prompt').classList.remove('show'); }
+function promptCreateAccount(){ closeAccountPrompt(); ME=null; localStorage.removeItem('skdla_me'); renderAccountUI(); showLoginGate(); }
+
+/* ---- notifications ---- */
+async function loadNotifications(){
+  if(!isMember()) return;
+  try{ NOTIS = await sbFetch(`notifications?user_id=eq.${ME.id}&order=created_at.desc&limit=50&select=id,type,project_id,actor,body,target,read,created_at`) || []; }
+  catch(e){ console.warn('[noti] load failed:', e.message); return; }
+  renderNotifications(); updateNotiBadge();
+}
+function unreadCount(){ return NOTIS.filter(n=>!n.read).length; }
+function updateNotiBadge(){ const b=document.getElementById('noti-badge'); if(!b) return; const c=unreadCount(); b.textContent=c>9?'9+':String(c); b.style.display=c>0?'':'none'; }
+function renderNotifications(){
+  const list=document.getElementById('noti-list'); if(!list) return;
+  if(!isMember()){ list.innerHTML='<div class="noti-empty"><strong>Sign in to see notifications</strong><span>Guests don’t receive notifications.</span></div>'; return; }
+  if(!NOTIS.length){ list.innerHTML='<div class="noti-empty"><strong>You’re all caught up!</strong><span>You have no new notifications.</span></div>'; return; }
+  list.innerHTML = NOTIS.map(n=>{
+    const proj = DATA.find(x=>x.id===n.project_id);
+    const title = proj ? proj.title : 'a project';
+    const icon = n.type==='mention' ? '💬' : '📌';
+    return `<div class="noti-item${n.read?'':' unread'}" onclick="openNotification('${n.id}')">`
+      + `<span class="noti-ico">${icon}</span>`
+      + `<div class="noti-body"><div class="noti-text">${esc(n.body||'')}</div>`
+      + `<div class="noti-sub">${esc(title)} · ${esc(fmtChatTime(n.created_at))}</div></div></div>`;
+  }).join('');
+}
+function toggleNotiPanel(){
+  const p=document.getElementById('noti-panel'); const opening=!p.classList.contains('open');
+  p.classList.toggle('open', opening); document.getElementById('acct-menu').classList.remove('open');
+  if(opening && isMember()) loadNotifications();
+}
+async function openNotification(id){
+  const n=NOTIS.find(x=>x.id===id); if(!n) return;
+  if(!n.read){ try{ await sbFetch(`notifications?id=eq.${id}`,'PATCH',{read:true}); n.read=true; updateNotiBadge(); }catch(_){} }
+  document.getElementById('noti-panel').classList.remove('open');
+  const proj=DATA.find(x=>x.id===n.project_id);
+  if(proj){ openA3Drawer(n.project_id); if(n.target==='chat') switchDrwTab('chat'); }
+  else { toast('That project is no longer available.'); }
+  renderNotifications();
+}
+async function markAllNotiRead(){
+  if(!isMember() || !unreadCount()) return;
+  try{ await sbFetch(`notifications?user_id=eq.${ME.id}&read=eq.false`,'PATCH',{read:true}); }catch(_){}
+  NOTIS.forEach(n=>n.read=true); updateNotiBadge(); renderNotifications();
+}
+function startNotiPolling(){ stopNotiPolling(); NOTI_POLL_TIMER=setInterval(loadNotifications, 15000); }
+function stopNotiPolling(){ if(NOTI_POLL_TIMER){ clearInterval(NOTI_POLL_TIMER); NOTI_POLL_TIMER=null; } }
+async function createNotification(userId, type, projectId, body, target){
+  if(!userId) return;
+  try{ await sbFetch('notifications','POST',{ user_id:userId, type, project_id:projectId, actor:meName(), body, target:target||'project' }); }
+  catch(e){ console.warn('[noti] create failed:', e.message); }
+}
+
+/* ---- @mentions in chat ---- */
+function notifyMentions(projectId, text){
+  if(!MEMBERS.length || !text) return;
+  const lower=text.toLowerCase(); const seen=new Set();
+  MEMBERS.forEach(m=>{
+    if(!m.name || (ME && m.id===ME.id)) return;       // skip self
+    if(lower.includes('@'+m.name.toLowerCase()) && !seen.has(m.id)){
+      seen.add(m.id);
+      createNotification(m.id, 'mention', projectId, `${meName()} mentioned you: “${text.slice(0,80)}”`, 'chat');
+    }
+  });
+}
+
+/* ---- project assignment ---- */
+function fillAssigneeSelect(ctx, currentId){
+  const sel=document.getElementById(ctx+'-assignee'); if(!sel) return;
+  sel.innerHTML = '<option value="">— Unassigned —</option>' + MEMBERS.map(m=>`<option value="${m.id}"${m.id===currentId?' selected':''}>${esc(m.name)}</option>`).join('');
+}
+async function onAssigneeChange(ctx){
+  const projId = ctx==='a3' ? A3_EDITING_ID : DRW_ID;
+  const p = DATA.find(x=>x.id===projId);
+  if(!requireAccount('assign people to projects')){ fillAssigneeSelect(ctx, (p&&p.a3_data&&p.a3_data.assignee&&p.a3_data.assignee.id)||''); return; }
+  const sel=document.getElementById(ctx+'-assignee');
+  const member=MEMBERS.find(m=>m.id===sel.value);
+  if(p){ p.a3_data=p.a3_data||{}; p.a3_data.assignee = member ? {id:member.id,name:member.name} : null; }
+  if(ctx==='a3') saveA3({silent:true}); else saveDrwA3({silent:true});
+  if(member && (!ME || member.id!==ME.id)){
+    createNotification(member.id, 'assignment', projId, `${meName()} assigned you to “${p?p.title:'a project'}”`, 'project');
+    toast('Assigned to '+member.name);
+  }
+}
+
+/* close popovers on outside click */
+document.addEventListener('click', e=>{
+  if(!e.target.closest('#noti-wrap')) document.getElementById('noti-panel') && document.getElementById('noti-panel').classList.remove('open');
+  if(!e.target.closest('#acct-wrap')) document.getElementById('acct-menu') && document.getElementById('acct-menu').classList.remove('open');
+});
+
+/* ══════════════════════════════════════════════
+   GUIDED TOUR
+══════════════════════════════════════════════ */
+const TOUR_STEPS = [
+  {
+    target: null, pos: 'center', icon: '👋',
+    title: 'Welcome!',
+    body: `This quick tour walks you through the <strong>Engineering Project Module</strong> — from creating your first project to tracking it all the way to Launch. Takes about 2 minutes.`
+  },
+  {
+    target: '.new-btn', pos: 'bottom', icon: '➕',
+    title: 'Start a New Project',
+    body: `Every initiative starts here. Click <strong>+ New Engineering Solution</strong> to open the intake form and capture your project's details.`
+  },
+  {
+    target: '#intake-mask', pos: 'center', icon: '📋',
+    title: 'The Intake Form',
+    body: `Fill in what you know — you can always edit later. Key fields:<br><br>
+<strong>Title</strong> — short, clear project name<br>
+<strong>Business Unit</strong> — which dept or lab<br>
+<strong>Phase</strong> — where it stands today<br>
+<strong>Problem Statement</strong> — what are you solving?<br><br>
+Hit <strong>Save</strong> and your project appears on the board.`,
+    onEnter(){ try{ openIntakeForm(); }catch(e){} },
+    onExit(){  try{ closeIntakeForm(); }catch(e){} }
+  },
+  {
+    target: '.programs-section', pos: 'top', icon: '🗂️',
+    title: 'The 6-Step Pipeline',
+    body: `Projects follow a proven 6-step process:<br><br>
+<strong>1 Discovery</strong> — listen &amp; define the problem<br>
+<strong>2 Engineer</strong> — develop the solution<br>
+<strong>3 Validate</strong> — test every variable<br>
+<strong>4 Refine</strong> — tune for repeatability<br>
+<strong>5 Pilot</strong> — live at scale<br>
+<strong>6 Launch</strong> — full production rollout`
+  },
+  {
+    target: '.kanban', pos: 'top', icon: '📌',
+    title: 'The Kanban Board',
+    body: `Project cards are organized into phase columns. <strong>Drag a card</strong> between columns to move it forward. The gold badge on each column header shows how many projects are in that phase.`
+  },
+  {
+    target: '.project-card', pos: 'right', icon: '🃏',
+    title: 'Project Cards',
+    body: `Each card shows the project name, category, business unit, and phase gate. <strong>Click a card</strong> to open its Live A3 view — a real-time project dashboard.`
+  },
+  {
+    target: '#a3-drawer', pos: 'left', icon: '📊',
+    title: 'Live A3 Drawer',
+    body: `The A3 drawer slides in from the right — your quick-reference view for any project. Instantly see action items, a Gantt timeline, and the project chat without opening the full editor.`,
+    onEnter(){
+      const id = DATA?.[0]?.id;
+      if(id) try{ openA3Drawer(id); }catch(e){}
+    }
+  },
+  {
+    target: '#drw-tab-actions-content', pos: 'left', icon: '✅',
+    title: 'Action Items',
+    body: `The <strong>Actions</strong> tab is where you track every task that will move this project forward. Each row has a <strong>description, owner</strong>, and <strong>Gantt timeline bar</strong>.<br><br>
+<strong>Drag</strong> the grip handle ⠿ to reorder rows.<br>
+<strong>✕</strong> deletes a row.<br>
+<strong>Click a Gantt cell</strong> to set its status color.`,
+    onEnter(){ try{ switchDrwTab('actions'); }catch(e){} }
+  },
+  {
+    target: '#drw-tab-actions-content', pos: 'left', icon: '📅',
+    title: 'Timeline Scale',
+    body: `At the top of the Actions tab, toggle between <strong>Day / Week / Month</strong> to zoom in or out on the Gantt chart. Use Month for long programs, Day for sprint-level tasks.`
+  },
+  {
+    target: '[onclick="openFullA3()"]', pos: 'left', icon: '✏️',
+    title: 'Full Edit — Complete A3',
+    body: `Click <strong>Full Edit</strong> to open the complete A3 modal with every project field:<br><br>
+• Goals &amp; success metrics<br>
+• Root cause analysis<br>
+• Target conditions &amp; countermeasures<br>
+• ROI calculator<br>
+• File attachments &amp; sign-offs`
+  },
+  {
+    target: '#drw-tab-chat', pos: 'left', icon: '💬',
+    title: 'Project Chat',
+    body: `Every project has its own chat thread. Keep all communication <strong>inside the project</strong> — no more hunting through emails.<br><br>
+Type <strong>@name</strong> to notify a teammate. They'll see an in-app notification instantly.`,
+    onEnter(){ try{ switchDrwTab('chat'); }catch(e){} }
+  },
+  {
+    target: '#noti-bell', pos: 'bottom', icon: '🔔',
+    title: 'Notifications',
+    body: `When someone <strong>@mentions</strong> you or assigns you to a project, a red badge appears here. Click the bell to see all your notifications and jump straight to the relevant project or chat.`,
+    onEnter(){ try{ closeA3Drawer(); }catch(e){} }
+  },
+  {
+    target: '#acct-wrap', pos: 'bottom', icon: '👤',
+    title: 'Sign In',
+    body: `Enter your <strong>name and email</strong> to get assigned to projects and receive notifications. No password needed — just your identity so teammates can tag and notify you.`
+  },
+  {
+    target: null, pos: 'center', icon: '🎉',
+    title: "You're all set!",
+    body: `Now you know the essentials. The app <strong>autosaves</strong> as you work — just edit freely, nothing gets lost.<br><br>
+Start by clicking <strong>+ New Engineering Solution</strong> to create your first project.<br><br>
+You can restart this tour anytime from the <strong>?</strong> button in the header.`
+  }
+];
+
+let TOUR_IDX = 0;
+let TOUR_PAUSED = false;
+
+function startTour(){
+  if(!TOUR_PAUSED) TOUR_IDX = 0;
+  TOUR_PAUSED = false;
+  localStorage.setItem('skdla_tour_seen','1');
+  hideTourBeacon();
+  document.getElementById('tour-mask').classList.add('active');
+  showTourStep(TOUR_IDX);
+}
+function pauseTour(){
+  TOUR_PAUSED = true;
+  document.getElementById('tour-mask').classList.remove('active');
+  document.getElementById('tour-spotlight').style.display='none';
+}
+function restartTour(){
+  TOUR_PAUSED = false;
+  TOUR_IDX = 0;
+  try{ closeA3Drawer(); }catch(e){}
+  try{ closeIntakeForm(); }catch(e){}
+  showTourStep(0);
+}
+function showTourBeacon(){
+  const b=document.getElementById('tour-beacon');
+  if(b) b.classList.add('show');
+}
+function hideTourBeacon(){
+  const b=document.getElementById('tour-beacon');
+  if(b) b.classList.remove('show');
+}
+function maybeShowTourBeacon(){
+  if(!localStorage.getItem('skdla_tour_seen')) showTourBeacon();
+}
+
+function endTour(){
+  const cur = TOUR_STEPS[TOUR_IDX];
+  if(cur?.onExit) try{ cur.onExit(); }catch(e){}
+  try{ closeA3Drawer(); }catch(e){}
+  try{ closeIntakeForm(); }catch(e){}
+  TOUR_PAUSED = false;
+  TOUR_IDX = 0;
+  document.getElementById('tour-mask').classList.remove('active');
+  document.getElementById('tour-spotlight').style.display='none';
+}
+
+function tourAdvance(dir){
+  const cur = TOUR_STEPS[TOUR_IDX];
+  if(cur?.onExit) try{ cur.onExit(); }catch(e){}
+  const nxt = TOUR_IDX + dir;
+  if(nxt >= TOUR_STEPS.length){ endTour(); return; }
+  if(nxt < 0) return;
+  TOUR_IDX = nxt;
+  showTourStep(TOUR_IDX);
+}
+
+function showTourStep(idx){
+  const step = TOUR_STEPS[idx];
+  if(!step) return;
+  document.getElementById('trTipIcon').textContent  = step.icon||'';
+  document.getElementById('trTipTitle').textContent = step.title||'';
+  document.getElementById('trTipBody').innerHTML    = step.body||'';
+  document.getElementById('trStepLbl').textContent  = (idx+1)+' / '+TOUR_STEPS.length;
+  // Progress dots
+  document.getElementById('trProgress').innerHTML =
+    TOUR_STEPS.map((_,i)=>`<span class="tour-prog-dot ${i<idx?'done':i===idx?'cur':''}"></span>`).join('');
+  // Back button
+  document.getElementById('trBtnBack').style.display = idx===0?'none':'';
+  // Next / Done button
+  const nb = document.getElementById('trBtnNext');
+  if(idx===TOUR_STEPS.length-1){
+    nb.textContent='Done ✓'; nb.className='tour-btn tour-btn-done';
+  } else {
+    nb.textContent='Next →'; nb.className='tour-btn tour-btn-next';
+  }
+  if(step.onEnter) setTimeout(()=>{ try{ step.onEnter(); }catch(e){} }, 60);
+  setTimeout(()=>{ positionTourStep(step); }, 220);
+}
+
+function positionTourStep(step){
+  const spotlight = document.getElementById('tour-spotlight');
+  const tip       = document.getElementById('tour-tip');
+  const PAD=8, TW=322, TH=320;
+  const vw=window.innerWidth, vh=window.innerHeight;
+  if(!step.target){
+    spotlight.style.display='none';
+    tip.style.left=Math.max(12,(vw/2-TW/2))+'px';
+    tip.style.top =Math.max(12,(vh/2-TH/2))+'px';
+    return;
+  }
+  const el=document.querySelector(step.target);
+  if(!el){
+    spotlight.style.display='none';
+    tip.style.left=Math.max(12,(vw/2-TW/2))+'px';
+    tip.style.top =Math.max(12,(vh/2-TH/2))+'px';
+    return;
+  }
+  el.scrollIntoView({behavior:'smooth',block:'nearest'});
+  setTimeout(()=>{
+    const r=el.getBoundingClientRect();
+    spotlight.style.display='block';
+    spotlight.style.top   =(r.top-PAD)+'px';
+    spotlight.style.left  =(r.left-PAD)+'px';
+    spotlight.style.width =(r.width+PAD*2)+'px';
+    spotlight.style.height=(r.height+PAD*2)+'px';
+    let tx,ty;
+    const pos=step.pos||'bottom';
+    if(pos==='center'){ tx=vw/2-TW/2; ty=vh/2-TH/2; }
+    else if(pos==='left'){  tx=r.left-TW-18;         ty=r.top+r.height/2-TH/2; }
+    else if(pos==='right'){ tx=r.right+18;            ty=r.top+r.height/2-TH/2; }
+    else if(pos==='top'){   tx=r.left+r.width/2-TW/2; ty=r.top-TH-18; }
+    else{                   tx=r.left+r.width/2-TW/2; ty=r.bottom+18; }
+    tip.style.left=Math.max(12,Math.min(tx,vw-TW-12))+'px';
+    tip.style.top =Math.max(12,Math.min(ty,vh-TH-12))+'px';
+  },180);
+}
+
 /* ── Init ── */
 loadProjects();
+loadSession();
+loadMembers().then(()=>{ if(ME) afterAuth(); else showLoginGate(); });
+renderAccountUI();
 document.getElementById('modal-mask').addEventListener('click',e=>{if(e.target.id==='modal-mask') closeModal();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeA3Modal();closeIntakeForm();}});
 
@@ -3087,6 +3930,8 @@ let DRW_MEDIA = [];
 let DRW_TAB = 'overview';
 let DRW_ROI  = { materials:[], labor:[] };  // ROI calculator state
 let DRW_TEAM = [];   // team members [{name:'', role:''}]
+let DRW_CHAT = [];   // project discussion messages [{id,author,text,ts}]
+let A3_CHAT  = [];   // modal mirror of the same thread (reserved)
 const A3_FIELD_MAP = {
   'drw-problem':'problemStatement','drw-goal':'goal','drw-description':'description',
   'drw-sponsor':'sponsor','drw-leader':'projectLeader','drw-eng-leader':'engineeringLeader',
@@ -3100,9 +3945,14 @@ function openA3Drawer(id){
   document.getElementById('a3-drawer').classList.add('open');
   // Switch to overview on every open so fields are visible
   switchDrwTab('overview');
+  A3_AUTOSAVE_SUSPEND = true;            // don't autosave while populating
   populateDrawer(id);
+  A3_LAST_SAVED_SIG = JSON.stringify(buildDrwA3Data());  // baseline for autosave change-detection
+  A3_AUTOSAVE_SUSPEND = false;
 }
 function closeA3Drawer(){
+  flushAutosave();                       // persist any pending edits before closing
+  stopChatPolling();
   document.body.classList.remove('drawer-open');
   document.getElementById('a3-drawer').classList.remove('open');
 }
@@ -3110,22 +3960,118 @@ function toggleA3Drawer(){
   const isOpen = document.getElementById('a3-drawer').classList.contains('open');
   if(isOpen){ closeA3Drawer(); }
   else if(DRW_ID){ openA3Drawer(DRW_ID); }
-  else { closeA3Drawer(); }
+  else if(DATA.length){
+    // Nothing viewed yet this session — open the most recently updated project
+    const recent = DATA.slice().sort((a,b)=>
+      String(b.updated_at||b.created_at||'').localeCompare(String(a.updated_at||a.created_at||''))
+    )[0];
+    openA3Drawer(recent.id);
+  }
+  else { toast('No projects yet — add one to use the Live A3 view'); }
 }
 
 function switchDrwTab(tab){
   DRW_TAB = tab;
-  ['overview','actions','analysis'].forEach(t=>{
+  ['overview','actions','analysis','chat'].forEach(t=>{
     document.getElementById('drw-tab-'+t).classList.toggle('active', t===tab);
     document.getElementById('drw-tab-'+t+'-content').style.display = (t===tab)?'':'none';
   });
+  if(tab==='chat'){ loadChatMessages('drw', DRW_ID); startChatPolling('drw', DRW_ID); }
+  else stopChatPolling();
 }
+
+/* ── Per-project chat / discussion thread ──
+   Backed by its own append-only table (public.project_messages): each message is
+   a separate INSERT, so simultaneous users can never overwrite one another. The
+   open tab polls every few seconds so others' messages appear live. ── */
+let CHAT_POLL_TIMER = null;
+function getChatAuthor(){ if(typeof ME!=='undefined' && ME && ME.name) return ME.name; return (localStorage.getItem('skdla_chat_author')||'').trim() || 'Anonymous'; }
+function setChatAuthor(v){ localStorage.setItem('skdla_chat_author', (v||'').trim()); }
+function fmtChatTime(ts){
+  if(!ts) return '';
+  const d = new Date(ts); if(isNaN(d)) return '';
+  const time = d.toLocaleTimeString([], {hour:'numeric', minute:'2-digit'});
+  if(d.toDateString() === new Date().toDateString()) return 'Today '+time;
+  return d.toLocaleDateString([], {month:'short', day:'numeric'})+' '+time;
+}
+function renderChat(ctx){
+  const box = document.getElementById(ctx+'-chat-messages');
+  if(!box) return;
+  const arr = ctx==='a3' ? A3_CHAT : DRW_CHAT;
+  const me = getChatAuthor();
+  const nearBottom = (box.scrollHeight - box.scrollTop - box.clientHeight) < 80;
+  if(!arr.length){
+    box.innerHTML = '<div class="chat-empty">No messages yet — start the conversation.</div>';
+  } else {
+    box.innerHTML = arr.map(m=>{
+      const mine = (m.author||'Anonymous') === me;
+      return `<div class="chat-msg${mine?' mine':''}${m._pending?' pending':''}">`
+        + `<div class="chat-meta"><span class="chat-auth">${esc(m.author||'Anonymous')}</span><span class="chat-time">${esc(fmtChatTime(m.ts))}${m._pending?' · sending…':''}</span></div>`
+        + `<div class="chat-bubble">${esc(m.text||'')}</div>`
+        + `</div>`;
+    }).join('');
+  }
+  if(nearBottom) box.scrollTop = box.scrollHeight;   // only auto-scroll if user is already at the bottom
+  // Identity now comes from the signed-in account, so the manual name field is no longer needed
+  const ai = document.getElementById(ctx+'-chat-author'); if(ai) ai.style.display = 'none';
+  // Guests can't post — show a sign-in nudge in place of the composer input
+  const input = document.getElementById(ctx+'-chat-input');
+  if(input){ const guest = (typeof isMember==='function' && !isMember()); input.placeholder = guest ? 'Sign in to join the discussion…' : 'Write a message…  (Enter to send · @name to notify someone)'; }
+}
+function chatKeydown(e, ctx){ if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); postChat(ctx); } }
+
+async function loadChatMessages(ctx, id){
+  id = id || (ctx==='a3' ? A3_EDITING_ID : DRW_ID);
+  if(!id) return;
+  try{
+    const rows = await sbFetch(`project_messages?project_id=eq.${id}&order=created_at.asc&select=id,author,body,created_at`);
+    const msgs = (rows||[]).map(r=>({ id:r.id, author:r.author, text:r.body, ts:r.created_at }));
+    if(ctx==='a3') A3_CHAT = msgs; else DRW_CHAT = msgs;
+    const box = document.getElementById(ctx+'-chat-messages');
+    const sig = msgs.map(m=>m.id).join('|');
+    if(box && box.dataset.sig === sig) return;     // nothing new → skip re-render (no scroll jump)
+    if(box) box.dataset.sig = sig;
+    renderChat(ctx);
+  }catch(e){ console.warn('[chat] load failed:', e.message); }
+}
+
+async function postChat(ctx){
+  const id = ctx==='a3' ? A3_EDITING_ID : DRW_ID;
+  const el = document.getElementById(ctx+'-chat-input');
+  const text = (el && el.value || '').trim();
+  if(!text || !id) return;
+  if(!requireAccount('post messages')) return;   // guests are view-only
+  const author = getChatAuthor();
+  const arr = ctx==='a3' ? A3_CHAT : DRW_CHAT;
+  el.value = '';
+  // Optimistic: show it immediately as "sending…", then confirm against the server
+  const temp = { id:'temp-'+Date.now(), author, text, ts:new Date().toISOString(), _pending:true };
+  arr.push(temp);
+  const box = document.getElementById(ctx+'-chat-messages'); if(box) box.dataset.sig = '';
+  renderChat(ctx);
+  try{
+    await sbFetch('project_messages','POST',{ project_id:id, author, body:text });
+    notifyMentions(id, text);          // @name → notify mentioned members
+    await loadChatMessages(ctx, id);   // reconcile: canonical row + anyone else's new messages
+  }catch(e){
+    const i = arr.indexOf(temp); if(i>=0) arr.splice(i,1);
+    if(el) el.value = text;            // restore the text so they can retry
+    renderChat(ctx);
+    toast('Message failed to send: '+e.message);
+  }
+}
+
+function startChatPolling(ctx, id){ stopChatPolling(); CHAT_POLL_TIMER = setInterval(()=>loadChatMessages(ctx, id), 4000); }
+function stopChatPolling(){ if(CHAT_POLL_TIMER){ clearInterval(CHAT_POLL_TIMER); CHAT_POLL_TIMER = null; } }
 
 function populateDrawer(id){
   const p = DATA.find(x=>x.id===id);
   if(!p) return;
   const a3 = (p.a3_data && typeof p.a3_data==='object') ? p.a3_data : {};
   DRW_ACTIONS = Array.isArray(a3.actionItems) ? JSON.parse(JSON.stringify(a3.actionItems)) : [];
+  DRW_GANTT_SCALE = a3.ganttScale || 'month'; DRW_GANTT_OFFSET = 0;
+  DRW_CHAT = [];   // chat now lives in the project_messages table; loaded when the Chat tab opens
+  fillAssigneeSelect('drw', (a3.assignee && a3.assignee.id) || '');
   DRW_MEDIA   = Array.isArray(a3.media) ? JSON.parse(JSON.stringify(a3.media)) : [];
   // Load team — support both old plain-string format and new array format
   if(Array.isArray(a3.teamMembers)){
@@ -3562,25 +4508,12 @@ document.addEventListener('keydown', function(e){
 });
 
 /* ── Save from drawer ── */
-async function saveDrwA3(){
-  if(!DRW_ID){ toast('No project selected'); return; }
+function buildDrwA3Data(){
   const p = DATA.find(x=>x.id===DRW_ID);
-  if(!p){ toast('Project not found in local data'); return; }
-
-  // Helper: safely read a field value — returns '' if element missing
-  const getVal = id => {
-    const el = document.getElementById('drwf-'+id);
-    return el ? el.value : '';
-  };
-  const getQuad = id => {
-    const el = document.getElementById('drwq-'+id);
-    return el ? el.value : '';
-  };
-
-  // Preserve all existing a3_data fields, then overwrite only what we manage
-  const old = (p.a3_data && typeof p.a3_data==='object') ? p.a3_data : {};
-
-  const a3_data = {
+  const old = (p && p.a3_data && typeof p.a3_data==='object') ? p.a3_data : {};
+  const getVal  = id => { const el = document.getElementById('drwf-'+id); return el ? el.value : ''; };
+  const getQuad = id => { const el = document.getElementById('drwq-'+id); return el ? el.value : ''; };
+  return {
     ...old,                               // keep any fields we don't manage
     problemStatement: getVal('problemStatement'),
     goal:             getVal('goal'),
@@ -3600,17 +4533,38 @@ async function saveDrwA3(){
     actionItems:      DRW_ACTIONS.filter(a=>a.action||a.who),
     media:            DRW_MEDIA,
     roi:              DRW_ROI,
+    ganttScale:       DRW_GANTT_SCALE,
   };
+}
 
-  // Build patch payload
+async function saveDrwA3(opts){
+  const silent = !!(opts && opts.silent);
+  if(isGuest()){ if(!silent) showAccountPrompt('edit projects'); return; }   // guests are view-only
+  if(!DRW_ID){ if(!silent) toast('No project selected'); return; }
+  const p = DATA.find(x=>x.id===DRW_ID);
+  if(!p){ if(!silent) toast('Project not found in local data'); return; }
+
+  const a3_data = buildDrwA3Data();
+  const sig = JSON.stringify(a3_data);
+  if(silent && sig === A3_LAST_SAVED_SIG){ setA3SaveStatus('saved'); return; }  // no real change → skip network
+
   const roiTotals = calcROITotals();
   const patch = { a3_data, updated_at: new Date().toISOString() };
   if(roiTotals.annualTotal > 0){
     patch.monthly_savings = Math.round(roiTotals.annualTotal / 12);
   }
 
+  if(silent) setA3SaveStatus('saving');
   try{
     const result = await sbFetch(`npi_projects?id=eq.${DRW_ID}`, 'PATCH', patch);
+    A3_LAST_SAVED_SIG = sig;
+    if(silent){
+      // Update local cache without re-rendering the drawer (keeps the user's place/state)
+      const p2 = DATA.find(x=>x.id===DRW_ID);
+      if(p2){ p2.a3_data = a3_data; if(patch.monthly_savings!=null) p2.monthly_savings = patch.monthly_savings; p2.updated_at = patch.updated_at; }
+      setA3SaveStatus('saved');
+      return;
+    }
     console.log('[saveDrwA3] PATCH result:', result);
     toast('A3 saved ✓');
     // Refresh local DATA without re-rendering the drawer (avoids wiping user state)
@@ -3629,13 +4583,18 @@ async function saveDrwA3(){
     }
   } catch(e){
     console.error('[saveDrwA3] error:', e);
-    alert('Save failed: ' + e.message);
+    if(silent){ setA3SaveStatus('error'); }
+    else { alert('Save failed: ' + e.message); }
   }
 }
 
 /* Open full A3 modal from drawer */
 function openFullA3(){
-  if(DRW_ID) openA3Modal(DRW_ID);
+  if(!DRW_ID) return;
+  // Close the drawer first — the full modal is the expanded view of the same A3,
+  // and the drawer (z-index 300) would otherwise render on top of the modal (z-index 200).
+  closeA3Drawer();
+  openA3Modal(DRW_ID);
 }
 
 /* Delete from drawer */
@@ -3793,18 +4752,14 @@ function disableVoiceCommand(){
 
 function updateVoiceBtn(){
   const btn = document.getElementById('voice-toggle-btn');
-  const lbl = document.getElementById('voice-toggle-label');
   if(!btn) return;
   if(!voiceEnabled){
     btn.classList.remove('active','listening');
-    if(lbl) lbl.textContent = 'Voice Off';
   } else if(voiceSession){
     btn.classList.add('active','listening');
-    if(lbl) lbl.textContent = 'Listening';
   } else {
     btn.classList.add('active');
     btn.classList.remove('listening');
-    if(lbl) lbl.textContent = 'Voice On';
   }
 }
 
@@ -4600,8 +5555,8 @@ function readSignOffs(){
 <div class="a3-drw-overlay" id="a3-drw-overlay" onclick="closeA3Drawer()"></div>
 
 <!-- Floating tab to open/close drawer -->
-<button class="a3-drw-toggle" id="a3-drw-toggle" onclick="toggleA3Drawer()" title="Live A3 View">
-  <span class="drw-tog-dot"></span>Live A3
+<button class="a3-drw-toggle" id="a3-drw-toggle" onclick="toggleA3Drawer()" title="Reopen the last A3 you viewed (or the most recently updated)">
+  <span class="drw-tog-dot"></span>Last Viewed A3
 </button>
 
 <aside class="a3-drawer" id="a3-drawer">
@@ -4619,6 +5574,7 @@ function readSignOffs(){
     <button class="a3-drw-tab active" id="drw-tab-overview" onclick="switchDrwTab('overview')">Overview</button>
     <button class="a3-drw-tab" id="drw-tab-actions" onclick="switchDrwTab('actions')">Actions</button>
     <button class="a3-drw-tab" id="drw-tab-analysis" onclick="switchDrwTab('analysis')">Analysis</button>
+    <button class="a3-drw-tab" id="drw-tab-chat" onclick="switchDrwTab('chat')">Chat</button>
   </div>
 
   <!-- Body -->
@@ -4626,6 +5582,7 @@ function readSignOffs(){
     <div id="drw-tab-overview-content">
       <!-- Savings strip -->
       <div class="a3-drw-savings" id="drw-savings"></div>
+      <div class="drw-assignee-bar">👤 Assigned to <select id="drw-assignee" class="assignee-select" onchange="onAssigneeChange('drw')"></select></div>
       <!-- Collapsible sections filled by JS -->
       <div id="drw-overview-sections"></div>
 
@@ -4657,9 +5614,16 @@ function readSignOffs(){
         <div class="a3-drw-sec-body" style="padding:6px 8px">
           <div class="gantt-wrap" id="drw-gantt-wrap">
             <div class="gantt-nav">
-              <button class="gantt-nav-btn" onclick="shiftGantt('drw',-1)" title="Scroll left">‹</button>
-              <span class="gantt-nav-title" id="drw-gantt-range">—</span>
-              <button class="gantt-nav-btn" onclick="shiftGantt('drw',1)" title="Scroll right">›</button>
+              <div class="gantt-scale" title="Timeline scale">
+                <button class="gantt-scale-btn" id="drw-scale-day"   onclick="setGanttScale('drw','day')">Day</button>
+                <button class="gantt-scale-btn" id="drw-scale-week"  onclick="setGanttScale('drw','week')">Week</button>
+                <button class="gantt-scale-btn" id="drw-scale-month" onclick="setGanttScale('drw','month')">Month</button>
+              </div>
+              <div class="gantt-nav-right">
+                <button class="gantt-nav-btn" onclick="shiftGantt('drw',-1)" title="Scroll back">‹</button>
+                <span class="gantt-nav-title" id="drw-gantt-range">—</span>
+                <button class="gantt-nav-btn" onclick="shiftGantt('drw',1)" title="Scroll forward">›</button>
+              </div>
             </div>
             <div class="gantt-scroll">
               <table class="a3-actions" id="drw-actions-table">
@@ -4670,7 +5634,6 @@ function readSignOffs(){
           </div>
           <div style="display:flex;gap:6px;margin-top:6px">
             <button class="btn btn-primary" style="font-size:11px;padding:5px 12px" onclick="addDrwAction()">+ Add Action</button>
-            <button class="btn btn-ghost" style="color:var(--red);border-color:var(--border);font-size:11px;padding:5px 10px" onclick="removeDrwAction()">− Remove Last</button>
           </div>
         </div>
       </div>
@@ -4696,6 +5659,24 @@ function readSignOffs(){
         </div>
       </div>
 
+    </div>
+
+    <div id="drw-tab-chat-content" style="display:none">
+      <div class="a3-drw-section">
+        <div class="a3-drw-sec-hd">💬 Project Discussion <span class="sec-arrow"></span></div>
+        <div class="a3-drw-sec-body" style="padding:0">
+          <div class="chat-wrap">
+            <div class="chat-messages" id="drw-chat-messages"></div>
+            <div class="chat-composer">
+              <input type="text" class="chat-author" id="drw-chat-author" placeholder="Your name (shown on your messages)" oninput="setChatAuthor(this.value)">
+              <div class="chat-row">
+                <textarea id="drw-chat-input" class="chat-input" rows="1" placeholder="Write a message…  (Enter to send · Shift+Enter for a new line)" onkeydown="chatKeydown(event,'drw')"></textarea>
+                <button class="btn btn-primary chat-send" onclick="postChat('drw')">Send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
 
@@ -4786,6 +5767,28 @@ function readSignOffs(){
     <div class="mic-perm-ft">
       <button class="btn btn-ghost" style="color:var(--text-muted)" onclick="closeMicPermModal()">Cancel</button>
       <button class="btn btn-primary" onclick="requestMicAndEnable()">Allow Microphone &amp; Enable Voice</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Guided Tour Overlay ── -->
+<div class="tour-mask" id="tour-mask" onclick="if(event.target===this)pauseTour()">
+  <div class="tour-spotlight" id="tour-spotlight" style="display:none"></div>
+  <div class="tour-tip" id="tour-tip">
+    <div class="tour-tip-hd">
+      <span class="tour-step-lbl" id="trStepLbl">1 / 14</span>
+      <button class="tour-restart-btn" onclick="restartTour()" title="Restart tour from beginning">↩</button>
+      <button class="tour-skip-btn" onclick="endTour()" title="Close tour">✕</button>
+    </div>
+    <span class="tour-tip-icon" id="trTipIcon">👋</span>
+    <div class="tour-tip-title" id="trTipTitle"></div>
+    <div class="tour-tip-body" id="trTipBody"></div>
+    <div class="tour-tip-ft">
+      <div class="tour-prog" id="trProgress"></div>
+      <div class="tour-tip-btns">
+        <button class="tour-btn tour-btn-back" id="trBtnBack" onclick="tourAdvance(-1)" style="display:none">← Back</button>
+        <button class="tour-btn tour-btn-next" id="trBtnNext" onclick="tourAdvance(1)">Next →</button>
+      </div>
     </div>
   </div>
 </div>
